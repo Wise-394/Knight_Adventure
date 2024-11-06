@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4yur2i8wyhe7"]
+
+[ext_resource type="Texture2D" uid="uid://dw61ftocva3qb" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="1_3khtj"]
+[ext_resource type="Script" path="res://scene/player.gd" id="1_ulv63"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tvag"]
+atlas = ExtResource("1_3khtj")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v71ir"]
+atlas = ExtResource("1_3khtj")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wr32"]
+atlas = ExtResource("1_3khtj")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwfgx"]
+atlas = ExtResource("1_3khtj")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvri0"]
+atlas = ExtResource("1_3khtj")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mpxl"]
+atlas = ExtResource("1_3khtj")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k02jv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tvag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v71ir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wr32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwfgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvri0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mpxl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k77tm"]
+size = Vector2(8, 14)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ulv63")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k02jv")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k77tm")
