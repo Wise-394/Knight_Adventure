@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://gaatcrdpjxpr"]
+
+[ext_resource type="Texture2D" uid="uid://bmxi4keqcrv44" path="res://asset/Rocky Roads/Rocky Roads/Enemies/bear_brown.png" id="1_0j0no"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdidh"]
+atlas = ExtResource("1_0j0no")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kug7x"]
+atlas = ExtResource("1_0j0no")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8i3n6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdidh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kug7x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="enemy_bear" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8i3n6")
+frame_progress = 0.707724

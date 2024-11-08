@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://108fnppui8n"]
+
+[ext_resource type="Script" path="res://scene/enemy_orc.gd" id="1_xl68k"]
+[ext_resource type="Texture2D" uid="uid://b5gj86a3f3np6" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Walk.png" id="2_820sg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7flq0"]
+atlas = ExtResource("2_820sg")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52q3s"]
+atlas = ExtResource("2_820sg")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dild"]
+atlas = ExtResource("2_820sg")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p21m"]
+atlas = ExtResource("2_820sg")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljtr8"]
+atlas = ExtResource("2_820sg")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch6pl"]
+atlas = ExtResource("2_820sg")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flfwg"]
+atlas = ExtResource("2_820sg")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdoq5"]
+atlas = ExtResource("2_820sg")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vys6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7flq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52q3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dild")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p21m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljtr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch6pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flfwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdoq5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffxsh"]
+size = Vector2(12, 15)
+
+[node name="enemy_orc" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_xl68k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vys6l")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.30155
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_ffxsh")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(17, -1)
+collision_mask = 12
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-17, 0)
+collision_mask = 12
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
