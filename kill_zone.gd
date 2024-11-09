@@ -9,3 +9,6 @@ func _on_body_entered(body):
 
 func _on_timer_timeout():
 	game_manager.playerDeath()
+
+
+	

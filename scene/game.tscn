@@ -125,9 +125,10 @@ _data = {
 [node name="Game" type="Node2D"]
 position = Vector2(56, -184)
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true
 script = ExtResource("1_istni")
+hearts = [NodePath("../UI/hearts/HBoxContainer/heart"), NodePath("../UI/hearts/HBoxContainer/heart2"), NodePath("../UI/hearts/HBoxContainer/heart3")]
 
 [node name="EnemyBarrier" type="Node" parent="."]
 
@@ -194,20 +195,13 @@ shape = SubResource("WorldBoundaryShape2D_q14lt")
 [node name="enemy_orc" parent="Enemy" instance=ExtResource("5_o772b")]
 position = Vector2(228, -183)
 
-[node name="enemy_orc2" parent="Enemy" instance=ExtResource("5_o772b")]
-position = Vector2(461, -197)
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="hearts" type="Panel" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -189.0
-offset_top = 5.0
-offset_right = -7.0
-offset_bottom = 68.0
-grow_horizontal = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 199.0
+offset_bottom = 78.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/hearts"]
 layout_mode = 0
