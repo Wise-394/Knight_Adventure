@@ -7,11 +7,13 @@ var ray_cast_left
 var timer
 var game_manager
 var area_2d
-
+var hp
+var state = "default"
 
 const speed = 10
 var direction = 1
 var stopMoving = false
+var JUMP_VELOCITY = -150
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -44,3 +46,25 @@ func faceDirection():
 func _on_timer_timeout():
 	if stopMoving:
 		stopMoving = false # Replace with function body.
+		
+func hurt(dmg):
+	hp -= dmg
+	knockBack()
+	if hp > 0:
+		animated_sprite.play("hurt")
+		stopMoving = true
+		timer.start()
+	elif hp <= 0:
+		death()
+func knockBack():
+	velocity.y = JUMP_VELOCITY * 0.5
+func death():
+	stopMoving = true
+	animated_sprite.play("death")
+	
+func _on_animated_sprite_2d_animation_finished():
+	if animated_sprite.animation == "hurt":
+		animated_sprite.play("walk")
+		stopMoving = false
+	if animated_sprite.animation == "death":
+		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b4yur2i8wyhe7"]
+[gd_scene load_steps=44 format=3 uid="uid://b4yur2i8wyhe7"]
 
 [ext_resource type="Texture2D" uid="uid://dw61ftocva3qb" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="1_3khtj"]
 [ext_resource type="Script" path="res://player.gd" id="1_ulv63"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b2d1syl4mhiab" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Hurt.png" id="3_civx8"]
 [ext_resource type="Texture2D" uid="uid://ck4afoothhy8f" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="3_m6wyy"]
 [ext_resource type="Texture2D" uid="uid://ykyh2xhebsts" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Attack01.png" id="4_qqm1v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05isj"]
+size = Vector2(13, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dx0n"]
 atlas = ExtResource("2_njeun")
@@ -188,7 +191,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -275,11 +278,20 @@ size = Vector2(12, 18)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ulv63")
 
+[node name="SwordHit" type="Area2D" parent="."]
+position = Vector2(7, -1)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHit"]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_05isj")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k02jv")
-animation = &"hurt"
+animation = &"sword_attack"
 autoplay = "idle"
-frame = 3
+frame = 5
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -293,10 +305,8 @@ collision_mask = 2
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ftbep")
 
-[node name="HurtTimer" type="Timer" parent="."]
-wait_time = 0.8
-one_shot = true
-
+[connection signal="body_entered" from="SwordHit" to="." method="_on_sword_hit_body_entered"]
+[connection signal="body_exited" from="SwordHit" to="." method="_on_sword_hit_body_exited"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
-[connection signal="timeout" from="HurtTimer" to="." method="_on_timer_timeout"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]

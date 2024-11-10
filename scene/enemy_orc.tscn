@@ -1,7 +1,41 @@
-[gd_scene load_steps=13 format=3 uid="uid://108fnppui8n"]
+[gd_scene load_steps=23 format=3 uid="uid://108fnppui8n"]
 
 [ext_resource type="Script" path="res://script/enemy_orc.gd" id="1_siqqs"]
 [ext_resource type="Texture2D" uid="uid://b5gj86a3f3np6" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Walk.png" id="2_820sg"]
+[ext_resource type="Texture2D" uid="uid://c2tliy0oflmjo" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Death.png" id="2_tklvx"]
+[ext_resource type="Texture2D" uid="uid://m480hofeb4cy" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Hurt.png" id="2_xx5yi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6g1w"]
+atlas = ExtResource("2_tklvx")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho5kk"]
+atlas = ExtResource("2_tklvx")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwa7l"]
+atlas = ExtResource("2_tklvx")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_500xg"]
+atlas = ExtResource("2_tklvx")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmx85"]
+atlas = ExtResource("2_xx5yi")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2nve"]
+atlas = ExtResource("2_xx5yi")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_842g6"]
+atlas = ExtResource("2_xx5yi")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lxpn"]
+atlas = ExtResource("2_xx5yi")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7flq0"]
 atlas = ExtResource("2_820sg")
@@ -37,6 +71,40 @@ region = Rect2(700, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vys6l"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6g1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho5kk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwa7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_500xg")
+}],
+"loop": false,
+"name": &"death",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmx85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2nve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_842g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lxpn")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7flq0")
@@ -77,9 +145,10 @@ script = ExtResource("1_siqqs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vys6l")
-animation = &"walk"
+animation = &"death"
 autoplay = "walk"
-frame_progress = 0.30155
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -1)
@@ -97,4 +166,5 @@ collision_mask = 12
 wait_time = 0.3
 one_shot = true
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

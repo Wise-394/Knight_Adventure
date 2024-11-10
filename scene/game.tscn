@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://de166d2xpn0w2"]
+[gd_scene load_steps=19 format=4 uid="uid://de166d2xpn0w2"]
 
 [ext_resource type="Script" path="res://scene/game_manager.gd" id="1_istni"]
 [ext_resource type="PackedScene" uid="uid://dpexrbt2fbcnv" path="res://scene/enemy_barrier.tscn" id="1_mieqs"]
@@ -17,6 +17,9 @@ size = Vector2(48, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrevw"]
 size = Vector2(20, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bohn2"]
+size = Vector2(5, 20)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjc0u"]
 texture = ExtResource("2_6f2po")
@@ -154,6 +157,13 @@ position = Vector2(563, -196)
 position = Vector2(9, 1)
 shape = SubResource("RectangleShape2D_rrevw")
 
+[node name="EnemyBarrier2" parent="." instance=ExtResource("1_mieqs")]
+position = Vector2(239, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBarrier2"]
+position = Vector2(-1.5, -1)
+shape = SubResource("RectangleShape2D_bohn2")
+
 [node name="Player" parent="." instance=ExtResource("1_spveg")]
 top_level = true
 z_index = 5
@@ -227,3 +237,9 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("8_dy664")
 expand_mode = 2
+
+[node name="enemy_orc" parent="." instance=ExtResource("5_o772b")]
+position = Vector2(274, -18)
+
+[node name="enemy_orc2" parent="." instance=ExtResource("5_o772b")]
+position = Vector2(419, -12)

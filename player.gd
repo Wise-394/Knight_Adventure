@@ -2,15 +2,17 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var gameManager = %GameManager
-@onready var timer = $HurtTimer
+@onready var sword_hit = $SwordHit
 
 var health = 3
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
-var isAttackingSword = false
-var isAttackingBow = false
-var isHurt = false
+var playerState = "default"
 var direction = 0
+var knockBackStrength =500
+var enemyOnHitBox = false
+var enemy = null
+var hitRegistered = false
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -21,11 +23,12 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	direction = Input.get_axis("left", "right")
 	move()
 	animation()
+	playerAttack()
 	
 func move():
+	direction = Input.get_axis("left", "right")
 	if direction > 0:
 		animated_sprite.flip_h = false
 	elif direction < 0:
@@ -39,38 +42,59 @@ func move():
 
 
 func animation():
-	if isHurt:
+	if playerState == "is_hurt":
 		animated_sprite.play("hurt")
-	elif Input.is_action_just_pressed("lmb") and isAttackingBow == false:
+	elif Input.is_action_just_pressed("lmb") and playerState == "default":
 		animated_sprite.play("sword_attack")
-		isAttackingSword = true
-	elif Input.is_action_just_pressed("rmb") and isAttackingSword == false:
+		playerState = "sword_attack"
+	elif Input.is_action_just_pressed("rmb") and not playerState == "sword_attack":
 		animated_sprite.play("bow_attack")
-		isAttackingBow = true
-	elif direction == 0 and not isAttackingSword and not isAttackingBow:
+		playerState = "bow_attack"
+	elif direction == 0 and not playerState == "sword_attack" and not playerState == "bow_attack":
 		animated_sprite.play("idle")
-	elif direction != 0 and not isAttackingSword and not isAttackingBow:
+	elif direction != 0 and not playerState == "sword_attack" and not playerState == "bow_attack":
 		animated_sprite.play("run")
 
+func playerAttack():
+	if animated_sprite.flip_h == false:
+		sword_hit.position.x = 7
+	else:
+		sword_hit.position.x = -19
+	
+	if playerState == "sword_attack" and enemyOnHitBox and not hitRegistered:
+		gameManager.enemyHit(1,enemy)
+		hitRegistered = true
+		
+
 func playerCollidedEnemy():
-	isHurt = true
-	timer.start()
 	knockBack()
+	playerState = "is_hurt"
 	gameManager.decreasePlayerHealth(1)
 
 func knockBack():
 	velocity.y = JUMP_VELOCITY * 0.5
+	if direction >= 0:
+		velocity.x = knockBackStrength * -1
+	if direction < 0:
+		velocity.x = knockBackStrength * 1
+	
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "sword_attack":
-		isAttackingSword = false
+		playerState = "default"
+		hitRegistered = false
 	if animated_sprite.animation == "bow_attack":
-		isAttackingBow = false
+		playerState = "default"
+	if animated_sprite.animation == "hurt":
+		playerState = "default"
 
 
-func _on_hit_box_body_entered(body):
+func _on_hit_box_body_entered(_body):
 	playerCollidedEnemy()
+	
 
-
-func _on_timer_timeout():
-	if isHurt:
-		isHurt = false
+func _on_sword_hit_body_exited(_body):
+	enemyOnHitBox = false
+	enemy = null
+func _on_sword_hit_body_entered(body):
+	enemyOnHitBox = true
+	enemy = body

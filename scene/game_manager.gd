@@ -19,3 +19,6 @@ func checkHealth():
 			hearts[h].hide()
 	if playerHealth <= 0:
 		playerDeath()
+func enemyHit(dmg,enemy):
+	enemy.hurt(dmg)
+	print("enemy hit")
