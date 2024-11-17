@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnh7hauwuos2a"]
+
+[ext_resource type="Texture2D" uid="uid://brik2ytow688y" path="res://asset/Rocky Roads/Rocky Roads/UI/hearts.png" id="1_gqt0v"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="hearts" type="Panel" parent="."]
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 199.0
+offset_bottom = 78.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hearts"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 176.0
+offset_bottom = 58.0
+
+[node name="heart" type="TextureRect" parent="hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_gqt0v")
+expand_mode = 2
+
+[node name="heart2" type="TextureRect" parent="hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_gqt0v")
+expand_mode = 2
+
+[node name="heart3" type="TextureRect" parent="hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_gqt0v")
+expand_mode = 2

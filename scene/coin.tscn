@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxrjpq8nf8ulu"]
+
+[ext_resource type="Script" path="res://script/coin.gd" id="1_kv2jh"]
+[ext_resource type="Texture2D" uid="uid://cd3ivg2ipwon6" path="res://asset/Rocky Roads/Rocky Roads/Objects/coin_small_gold.png" id="1_sqh3i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u73ov"]
+atlas = ExtResource("1_sqh3i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhwxu"]
+atlas = ExtResource("1_sqh3i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef333"]
+atlas = ExtResource("1_sqh3i")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li4ts"]
+atlas = ExtResource("1_sqh3i")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqt2a"]
+atlas = ExtResource("1_sqh3i")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovfd1"]
+atlas = ExtResource("1_sqh3i")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htcwj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u73ov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhwxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef333")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li4ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqt2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovfd1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vx7oe"]
+radius = 7.0
+
+[node name="coin" type="Area2D"]
+z_index = -1
+collision_layer = 0
+script = ExtResource("1_kv2jh")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_htcwj")
+autoplay = "default"
+frame_progress = 0.454159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vx7oe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

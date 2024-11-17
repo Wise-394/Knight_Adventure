@@ -44,6 +44,8 @@ rmb={
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="world"
 2d_physics/layer_4="invi"
+2d_physics/layer_5="pickups"
+2d_physics/layer_6="projectile"
 
 [rendering]
 

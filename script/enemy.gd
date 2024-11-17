@@ -15,6 +15,9 @@ var direction = 1
 var stopMoving = false
 var JUMP_VELOCITY = -150
 
+func _ready():
+	add_to_group("enemy")
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -55,6 +58,7 @@ func hurt(dmg):
 		stopMoving = true
 		timer.start()
 	elif hp <= 0:
+		state = "dead"
 		death()
 func knockBack():
 	velocity.y = JUMP_VELOCITY * 0.5
@@ -66,5 +70,5 @@ func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "hurt":
 		animated_sprite.play("walk")
 		stopMoving = false
-	if animated_sprite.animation == "death":
+	elif animated_sprite.animation == "death":
 		queue_free()
