@@ -9,7 +9,7 @@ var arrow
 
 @export var health = 3
 @export var arrowAmount = 3
-const SPEED = 150.0
+const SPEED = 115.0
 const JUMP_VELOCITY = -300.0
 var playerState = "default"
 var direction = 0
@@ -91,7 +91,10 @@ func playerCollidedEnemy(body):
 		knockBack()
 		playerState = "is_hurt"
 		gameManager.decreasePlayerHealth(1)
-
+func playerCollidedCannon():
+	knockBack()
+	playerState = "is_hurt"
+	gameManager.decreasePlayerHealth(1)
 func knockBack():
 	velocity.y = JUMP_VELOCITY * 0.5
 	if direction >= 0:

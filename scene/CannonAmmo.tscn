@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c152gg4bkaxqm"]
+
+[ext_resource type="Texture2D" uid="uid://b7iee4j0baild" path="res://asset/Rocky Roads/Rocky Roads/Enemies/bullet.png" id="1_gdwuc"]
+[ext_resource type="Script" path="res://scene/cannon_ammo.gd" id="1_qb6rk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27ie7"]
+size = Vector2(13, 9)
+
+[node name="CannonAmmo" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_qb6rk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gdwuc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 2.5)
+shape = SubResource("RectangleShape2D_27ie7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

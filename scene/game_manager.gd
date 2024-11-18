@@ -40,12 +40,15 @@ func pickUp(item):
 		coinAmount.text = str(coins)
 	if item == "heart":
 		if playerHealth < 3:
-			print("add health")
 			playerHealth += 1
 			checkHealth()
-			print(playerHealth)
 			
 func updateArrowAmount():
 	arrowAmount = player.arrowAmount
 	arrow_amount.text = str(arrowAmount)
+	
+func playerHitProjectile():
+	player.knockback()
+	player.playerState = "is_hurt"
+	decreasePlayerHealth(1)
 	

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5pfj0gymqasf"]
+
+[ext_resource type="Texture2D" uid="uid://ykgrwp8nttux" path="res://asset/Rocky Roads/Rocky Roads/Deco/clouds1.png" id="1_hygbp"]
+[ext_resource type="Script" path="res://script/sprite_2d.gd" id="2_dmi3v"]
+
+[node name="cloud" type="Sprite2D"]
+position = Vector2(-1, -1)
+texture = ExtResource("1_hygbp")
+script = ExtResource("2_dmi3v")
+speed = 5

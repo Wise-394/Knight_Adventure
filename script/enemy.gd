@@ -10,7 +10,7 @@ var area_2d
 var hp
 var state = "default"
 
-const speed = 10
+var speed = 10
 var direction = 1
 var stopMoving = false
 var JUMP_VELOCITY = -150
@@ -70,5 +70,5 @@ func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "hurt":
 		animated_sprite.play("walk")
 		stopMoving = false
-	elif animated_sprite.animation == "death":
+	if animated_sprite.animation == "death":
 		queue_free()
