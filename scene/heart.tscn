@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://lx4l2nmsh05r"]
 
-[ext_resource type="Script" path="res://scene/heart.gd" id="1_0ktww"]
+[ext_resource type="Script" path="res://heart.gd" id="1_0ktww"]
 [ext_resource type="Texture2D" uid="uid://bs12uy1a0g38p" path="res://asset/Rocky Roads/Rocky Roads/Objects/heart.png" id="1_w02qj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uo1rh"]

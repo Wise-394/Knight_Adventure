@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dmaem4do3w80r"]
 
-[ext_resource type="Script" path="res://scene/cannon.gd" id="1_0jc25"]
+[ext_resource type="Script" path="res://cannon.gd" id="1_0jc25"]
 [ext_resource type="Texture2D" uid="uid://bgajijtq2qx2n" path="res://asset/Rocky Roads/Rocky Roads/Enemies/cannon.png" id="1_xqacf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vj6u"]
