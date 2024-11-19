@@ -22,7 +22,6 @@ func _on_body_entered(body: Node2D) -> void:
 		body.hurt(3)
 		queue_free()
 	state = "dead"
-	print("collision")
 
 
 func _on_timer_timeout() -> void:

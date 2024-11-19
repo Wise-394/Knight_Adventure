@@ -13,7 +13,6 @@ const SPEED = 115.0
 const JUMP_VELOCITY = -300.0
 var playerState = "default"
 var direction = 0
-var knockBackStrength =500
 var enemyOnHitBox = false
 var enemy = null
 var hitRegistered = false
@@ -88,19 +87,19 @@ func shoot():
 		
 func playerCollidedEnemy(body):
 	if body.state != "dead":
-		knockBack()
+		knockBack(500,300)
 		playerState = "is_hurt"
 		gameManager.decreasePlayerHealth(1)
-func playerCollidedCannon():
-	knockBack()
+func playerGotHit(knockBackDistance,jumpDistance):
+	knockBack(knockBackDistance,jumpDistance)
 	playerState = "is_hurt"
 	gameManager.decreasePlayerHealth(1)
-func knockBack():
-	velocity.y = JUMP_VELOCITY * 0.5
+func knockBack(knockbackDistance,jumpDistance):
+	velocity.y = jumpDistance * 0.5
 	if direction >= 0:
-		velocity.x = knockBackStrength * -1
+		velocity.x = knockbackDistance * -1
 	if direction < 0:
-		velocity.x = knockBackStrength * 1
+		velocity.x = knockbackDistance * 1
 	
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "sword_attack":

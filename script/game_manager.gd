@@ -9,6 +9,8 @@ extends Node
 var playerHealth = 3
 var coins = 0
 var arrowAmount = 0
+var playerSpawnX = 98
+var playerSpawnY = -182
 
 func _ready():
 	coinAmount.text = str(coins)
@@ -51,4 +53,8 @@ func playerHitProjectile():
 	player.knockback()
 	player.playerState = "is_hurt"
 	decreasePlayerHealth(1)
-	
+
+func respawnCheckPoint():
+	decreasePlayerHealth(1)
+	player.position.x = playerSpawnX
+	player.position.y = playerSpawnY

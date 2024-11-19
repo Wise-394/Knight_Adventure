@@ -1,7 +1,7 @@
 [gd_scene load_steps=44 format=3 uid="uid://b4yur2i8wyhe7"]
 
 [ext_resource type="Texture2D" uid="uid://dw61ftocva3qb" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="1_3khtj"]
-[ext_resource type="Script" path="res://player.gd" id="1_ulv63"]
+[ext_resource type="Script" path="res://script/player.gd" id="1_ulv63"]
 [ext_resource type="Texture2D" uid="uid://kb2i4sp4bum4" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Attack03.png" id="2_njeun"]
 [ext_resource type="Texture2D" uid="uid://b2d1syl4mhiab" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Hurt.png" id="3_civx8"]
 [ext_resource type="Texture2D" uid="uid://ck4afoothhy8f" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="3_m6wyy"]

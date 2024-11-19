@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bell8ggk0skd6"]
+
+[ext_resource type="Script" path="res://script/check_point.gd" id="1_7badc"]
+[ext_resource type="Texture2D" uid="uid://dkaeco2qghl84" path="res://asset/Rocky Roads/Rocky Roads/Objects/sign.png" id="2_lr4bs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjyl0"]
+size = Vector2(24, 582)
+
+[node name="CheckPoint" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_7badc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lr4bs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -10)
+shape = SubResource("RectangleShape2D_hjyl0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

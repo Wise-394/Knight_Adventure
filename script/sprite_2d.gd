@@ -6,3 +6,5 @@ extends Sprite2D
 
 func _process(delta: float) -> void:
 	sprite_2d.position.x -= speed * delta
+	if sprite_2d.position.x <= -30:
+		sprite_2d.position.x = 220

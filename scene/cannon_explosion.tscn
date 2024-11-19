@@ -1,56 +1,66 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwpl04eellk4e"]
+[gd_scene load_steps=10 format=3 uid="uid://cwpl04eellk4e"]
 
 [ext_resource type="Texture2D" uid="uid://pmqc8uvgy4ag" path="res://asset/Rocky Roads/Rocky Roads/FX/bomb_explosion.png" id="1_lage6"]
 [ext_resource type="Script" path="res://scene/cannon_explosion.gd" id="2_wtuah"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_avbid"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lsoo"]
 atlas = ExtResource("1_lage6")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0qkgn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_eftsi"]
 atlas = ExtResource("1_lage6")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4yq3t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_grt18"]
 atlas = ExtResource("1_lage6")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2prku"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs7wy"]
 atlas = ExtResource("1_lage6")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ve7wi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_drkvn"]
 atlas = ExtResource("1_lage6")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_v8nch"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofw3w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_avbid")
+"texture": SubResource("AtlasTexture_7lsoo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0qkgn")
+"texture": SubResource("AtlasTexture_eftsi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4yq3t")
+"texture": SubResource("AtlasTexture_grt18")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2prku")
+"texture": SubResource("AtlasTexture_rs7wy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ve7wi")
+"texture": SubResource("AtlasTexture_drkvn")
 }],
 "loop": false,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="CannonExplosion" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_v8nch")
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3xnd"]
+radius = 11.0
+
+[node name="CannonExplosion" type="Area2D"]
+script = ExtResource("2_wtuah")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ofw3w")
 autoplay = "default"
 frame = 4
 frame_progress = 1.0
-script = ExtResource("2_wtuah")
 
-[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_q3xnd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

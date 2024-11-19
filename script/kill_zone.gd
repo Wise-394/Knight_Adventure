@@ -8,7 +8,7 @@ func _on_body_entered(_body):
 
 
 func _on_timer_timeout():
-	game_manager.playerDeath()
+	game_manager.respawnCheckPoint()
 
 
 	
