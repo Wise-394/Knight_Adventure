@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8p08pg5lybvh"]
+
+[ext_resource type="Script" path="res://script/game_manager.gd" id="1_nywj5"]
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("hearts")]
+script = ExtResource("1_nywj5")
+hearts = [NodePath(""), NodePath(""), NodePath("")]

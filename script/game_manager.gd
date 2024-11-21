@@ -5,20 +5,30 @@ extends Node
 @onready var player: CharacterBody2D = %Player
 @onready var arrow_amount: Label = %arrowAmount
 
+@export var currentLevel: int
+var saveData = PlayerData.new()
 
 var playerHealth = 3
-var coins = 0
-var arrowAmount = 0
+var coins
+var arrowAmount = 3
 var playerSpawnX = 98
 var playerSpawnY = -182
 
 func _ready():
-	coinAmount.text = str(coins)
+	if currentLevel == 1:
+		coins = 0
+		coinAmount.text = str(coins)
+		arrowAmount = 3
+	elif currentLevel == 2:
+		load_data()
+
 	updateArrowAmount()
 	
 
 func playerDeath():
 	if get_tree():
+		arrowAmount = 3
+		updateArrowAmount()
 		get_tree().call_deferred("reload_current_scene")
 
 func decreasePlayerHealth(amount):
@@ -46,7 +56,7 @@ func pickUp(item):
 			checkHealth()
 			
 func updateArrowAmount():
-	arrowAmount = player.arrowAmount
+	player.arrowAmount = arrowAmount
 	arrow_amount.text = str(arrowAmount)
 	
 func playerHitProjectile():
@@ -58,3 +68,17 @@ func respawnCheckPoint():
 	decreasePlayerHealth(1)
 	player.position.x = playerSpawnX
 	player.position.y = playerSpawnY
+
+func savePlayerData():
+	saveData.coins = coins
+	saveData.arrow = arrowAmount
+	var _result = ResourceSaver.save(saveData,"user://save_game.tres")
+
+func load_data():
+	if ResourceLoader.exists("user://save_game.tres"):
+		var playerData = ResourceLoader.load("user://save_game.tres") as PlayerData
+		if playerData:
+			coins = playerData.coins
+			arrowAmount = playerData.arrow
+			coinAmount.text = str(coins)
+		

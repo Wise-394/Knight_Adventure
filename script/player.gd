@@ -8,7 +8,6 @@ extends CharacterBody2D
 var arrow
 
 @export var health = 3
-@export var arrowAmount = 3
 const SPEED = 115.0
 const JUMP_VELOCITY = -300.0
 var playerState = "default"
@@ -16,10 +15,10 @@ var direction = 0
 var enemyOnHitBox = false
 var enemy = null
 var hitRegistered = false
-
+var arrowAmount
 func _ready() -> void:
 	arrow = preload("res:///scene/arrow.tscn")
-
+	arrowAmount = gameManager.arrowAmount
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -82,7 +81,7 @@ func shoot():
 	else:
 		new_arrow.sprite.flip_h = true
 		new_arrow.direction = -1
-	arrowAmount -= 1
+	gameManager.arrowAmount -= 1
 	gameManager.updateArrowAmount()
 		
 func playerCollidedEnemy(body):

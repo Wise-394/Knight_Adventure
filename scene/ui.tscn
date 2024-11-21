@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnh7hauwuos2a"]
+[gd_scene load_steps=3 format=3 uid="uid://dnh7hauwuos2a"]
 
 [ext_resource type="Texture2D" uid="uid://brik2ytow688y" path="res://asset/Rocky Roads/Rocky Roads/UI/hearts.png" id="1_gqt0v"]
+[ext_resource type="Texture2D" uid="uid://b7yj4dl2y5vux" path="res://asset/CM/shop/shopButtonCM1.png" id="2_t627w"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -34,3 +35,11 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_gqt0v")
 expand_mode = 2
+
+[node name="Shop" type="TextureButton" parent="."]
+offset_left = 1035.0
+offset_top = 11.0
+offset_right = 1126.0
+offset_bottom = 58.0
+texture_normal = ExtResource("2_t627w")
+stretch_mode = 0

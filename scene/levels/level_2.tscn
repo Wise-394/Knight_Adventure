@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=4 uid="uid://d1oshcwyram30"]
+
+[ext_resource type="PackedScene" uid="uid://dnh7hauwuos2a" path="res://scene/ui.tscn" id="1_b81kf"]
+[ext_resource type="PackedScene" uid="uid://b8p08pg5lybvh" path="res://scene/game_manager.tscn" id="1_w5vow"]
+[ext_resource type="Texture2D" uid="uid://dwnfd1bq1xrwb" path="res://asset/Rocky Roads/Rocky Roads/Tilesets/tileset_snow.png" id="1_waidr"]
+[ext_resource type="PackedScene" uid="uid://b4yur2i8wyhe7" path="res://scene/player.tscn" id="2_i4ei2"]
+[ext_resource type="Texture2D" uid="uid://dtw1irir1tnyb" path="res://asset/Rocky Roads/Rocky Roads/Objects/coin_solo.png" id="2_wtoln"]
+[ext_resource type="Texture2D" uid="uid://bun0txes47vvo" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(32x32).png" id="3_gx2nq"]
+[ext_resource type="PackedScene" uid="uid://ctkfxm1sx80jn" path="res://scene/kill_zone.tscn" id="7_dniwj"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sciiv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rhf4"]
+texture = ExtResource("1_waidr")
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_257ih"]
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_1rhf4")
+
+[node name="Level2" type="Node2D"]
+
+[node name="killZone" parent="." instance=ExtResource("7_dniwj")]
+position = Vector2(177, -82)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killZone"]
+shape = SubResource("WorldBoundaryShape2D_sciiv")
+
+[node name="UI" parent="." instance=ExtResource("1_b81kf")]
+
+[node name="Cointainer" type="HBoxContainer" parent="UI"]
+offset_left = 20.0
+offset_top = 176.0
+offset_right = 199.0
+offset_bottom = 231.0
+
+[node name="Coin" type="TextureRect" parent="UI/Cointainer"]
+layout_mode = 2
+texture = ExtResource("2_wtoln")
+expand_mode = 2
+
+[node name="CointAmount" type="Label" parent="UI/Cointainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "1"
+
+[node name="arrow" type="TextureRect" parent="UI"]
+offset_left = -15.0
+offset_top = 188.0
+offset_right = 25.0
+offset_bottom = 228.0
+rotation = -1.58236
+scale = Vector2(3, 3)
+texture = ExtResource("3_gx2nq")
+expand_mode = 2
+
+[node name="arrowAmount" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_left = 81.0
+offset_top = 96.0
+offset_right = 211.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("1_w5vow")]
+unique_name_in_owner = true
+hearts = [NodePath("../UI/hearts/HBoxContainer/heart"), NodePath("../UI/hearts/HBoxContainer/heart2"), NodePath("../UI/hearts/HBoxContainer/heart3")]
+currentLevel = 2
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(82, -164)
+tile_map_data = PackedByteArray("AAD//wEAAAABAAIAAAD//wIAAAABAAMAAAD//wMAAAABAAQAAAAAAAAAAAACAAEAAAAAAAEAAAACAAIAAAAAAAIAAAACAAMAAAAAAAMAAAACAAQAAAABAAAAAAADAAEAAAABAAEAAAADAAIAAAABAAIAAAADAAMAAAABAAMAAAADAAQAAAACAAAAAAAEAAEAAAACAAEAAAAEAAIAAAACAAIAAAAEAAMAAAACAAMAAAAEAAQAAAADAAAAAAAFAAEAAAADAAEAAAAFAAIAAAADAAIAAAAFAAMAAAADAAMAAAAFAAQAAAA=")
+tile_set = SubResource("TileSet_257ih")
+
+[node name="Player" parent="." instance=ExtResource("2_i4ei2")]
+unique_name_in_owner = true
+position = Vector2(99, -173)
+collision_mask = 4
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4.5, 4.5)
+limit_top = -400
+limit_bottom = -78
+position_smoothing_enabled = true
+
+[editable path="UI"]
