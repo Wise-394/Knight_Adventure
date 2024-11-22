@@ -34,7 +34,9 @@ func playerDeath():
 func decreasePlayerHealth(amount):
 	playerHealth -= amount
 	checkHealth()
-	
+func increasePlayerHealth(amount):
+	playerHealth += amount
+	checkHealth()
 func checkHealth():
 	for h in 3:
 		if (h < playerHealth):
@@ -54,11 +56,15 @@ func pickUp(item):
 		if playerHealth < 3:
 			playerHealth += 1
 			checkHealth()
-			
+func decreaseCoin(amount):
+	coins -= amount
+	coinAmount.text = str(coins)			
 func updateArrowAmount():
 	player.arrowAmount = arrowAmount
 	arrow_amount.text = str(arrowAmount)
-	
+func increaseArrowAmount(quantity):
+	arrowAmount += quantity
+	updateArrowAmount()
 func playerHitProjectile():
 	player.knockback()
 	player.playerState = "is_hurt"

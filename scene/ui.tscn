@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnh7hauwuos2a"]
+[gd_scene load_steps=4 format=3 uid="uid://dnh7hauwuos2a"]
 
 [ext_resource type="Texture2D" uid="uid://brik2ytow688y" path="res://asset/Rocky Roads/Rocky Roads/UI/hearts.png" id="1_gqt0v"]
-[ext_resource type="Texture2D" uid="uid://b7yj4dl2y5vux" path="res://asset/CM/shop/shopButtonCM1.png" id="2_t627w"]
+[ext_resource type="PackedScene" uid="uid://diru8q3cf3aho" path="res://scene/shop_button.tscn" id="2_t2bsm"]
+[ext_resource type="Texture2D" uid="uid://dg2h35tuy4d2g" path="res://asset/CM/shop/shopButtonPressed.png" id="3_n15ao"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -36,10 +37,8 @@ layout_mode = 2
 texture = ExtResource("1_gqt0v")
 expand_mode = 2
 
-[node name="Shop" type="TextureButton" parent="."]
-offset_left = 1035.0
-offset_top = 11.0
-offset_right = 1126.0
-offset_bottom = 58.0
-texture_normal = ExtResource("2_t627w")
-stretch_mode = 0
+[node name="ShopButton" parent="." instance=ExtResource("2_t2bsm")]
+unique_name_in_owner = true
+texture_pressed = ExtResource("3_n15ao")
+
+[connection signal="button_up" from="ShopButton" to="ShopButton" method="_on_button_up"]

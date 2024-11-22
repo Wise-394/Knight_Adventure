@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://diru8q3cf3aho"]
+
+[ext_resource type="Texture2D" uid="uid://b7yj4dl2y5vux" path="res://asset/CM/shop/shopButtonCM1.png" id="1_bq2fy"]
+[ext_resource type="Script" path="res://scene/shop_button.gd" id="2_3ty80"]
+[ext_resource type="PackedScene" uid="uid://dl4g6u5ywxqvu" path="res://scene/shop.tscn" id="3_mnpe6"]
+
+[node name="ShopButton" type="TextureButton"]
+process_mode = 3
+offset_left = 1035.0
+offset_top = 11.0
+offset_right = 1126.0
+offset_bottom = 58.0
+texture_normal = ExtResource("1_bq2fy")
+stretch_mode = 0
+script = ExtResource("2_3ty80")
+
+[node name="Shop" parent="." instance=ExtResource("3_mnpe6")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -709.5
+offset_top = 146.5
+offset_right = -299.5
+offset_bottom = 432.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

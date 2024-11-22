@@ -1,0 +1,174 @@
+[gd_scene load_steps=12 format=3 uid="uid://dl4g6u5ywxqvu"]
+
+[ext_resource type="Texture2D" uid="uid://bouii450pe7d1" path="res://asset/CM/shop/shopBG.png" id="1_owmq1"]
+[ext_resource type="Texture2D" uid="uid://qkdcen3qu8u1" path="res://asset/CM/shop/shopClose.png" id="2_dei64"]
+[ext_resource type="Texture2D" uid="uid://cnoovg7vs1liy" path="res://asset/CM/shop/ShopPanel.png" id="3_ow4fu"]
+[ext_resource type="Script" path="res://scene/exit_button.gd" id="3_stwwd"]
+[ext_resource type="Texture2D" uid="uid://bdwp8vvfxy34g" path="res://asset/CM/shop/shopClosePressed1.png" id="4_1fqbi"]
+[ext_resource type="Texture2D" uid="uid://brik2ytow688y" path="res://asset/Rocky Roads/Rocky Roads/UI/hearts.png" id="4_2nsf6"]
+[ext_resource type="Texture2D" uid="uid://bun0txes47vvo" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(32x32).png" id="6_15i8v"]
+[ext_resource type="Texture2D" uid="uid://iecavxicb4fj" path="res://asset/CM/shop/buttonBgpng.png" id="7_lhlhe"]
+[ext_resource type="Texture2D" uid="uid://c3wcnkr6g3vp3" path="res://asset/CM/shop/buttonBgpng-clickedt.png" id="8_fil31"]
+[ext_resource type="Texture2D" uid="uid://bwyn2ohiidgq3" path="res://asset/CM/shop/Upbutton.png" id="9_1ctwe"]
+[ext_resource type="Texture2D" uid="uid://d06hppmn27me1" path="res://asset/CM/shop/Upbutton-pressed.png" id="10_tvfpt"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 455.0
+offset_bottom = 181.0
+script = ExtResource("3_stwwd")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+offset_right = 457.0
+offset_bottom = 180.0
+texture = ExtResource("1_owmq1")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="ExitButton" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_right = -3.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_1fqbi")
+texture_pressed = ExtResource("2_dei64")
+stretch_mode = 0
+
+[node name="LifeBg" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 133.0
+offset_bottom = 134.0
+texture = ExtResource("3_ow4fu")
+
+[node name="LifePic" type="TextureRect" parent="NinePatchRect/LifeBg"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 101.0
+offset_bottom = 97.0
+texture = ExtResource("4_2nsf6")
+
+[node name="ExtraLife" type="Label" parent="NinePatchRect/LifeBg"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -21.0
+offset_right = 104.0
+offset_bottom = 2.0
+text = "EXTRA LIFE"
+
+[node name="BuyLife" type="TextureButton" parent="NinePatchRect/LifeBg"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 113.0
+offset_right = 114.0
+offset_bottom = 147.0
+texture_normal = ExtResource("7_lhlhe")
+texture_pressed = ExtResource("8_fil31")
+stretch_mode = 0
+
+[node name="LifeTextLabel" type="Label" parent="NinePatchRect/LifeBg/BuyLife"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 73.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "20"
+horizontal_alignment = 1
+
+[node name="ArrowBg" type="TextureRect" parent="NinePatchRect/LifeBg"]
+layout_mode = 0
+offset_left = 113.0
+offset_right = 234.0
+offset_bottom = 110.0
+texture = ExtResource("3_ow4fu")
+
+[node name="ArrowPic" type="TextureRect" parent="NinePatchRect/LifeBg/ArrowBg"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 101.0
+offset_bottom = 97.0
+texture = ExtResource("6_15i8v")
+
+[node name="Ammo" type="Label" parent="NinePatchRect/LifeBg/ArrowBg"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = -21.0
+offset_right = 89.0
+offset_bottom = 2.0
+text = "AMMO
+"
+
+[node name="BuyAmmo" type="TextureButton" parent="NinePatchRect/LifeBg/ArrowBg"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 113.0
+offset_right = 114.0
+offset_bottom = 147.0
+texture_normal = ExtResource("7_lhlhe")
+texture_pressed = ExtResource("8_fil31")
+stretch_mode = 0
+
+[node name="AmmoTextLabel" type="Label" parent="NinePatchRect/LifeBg/ArrowBg/BuyAmmo"]
+offset_left = 34.0
+offset_top = 5.0
+offset_right = 74.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5"
+horizontal_alignment = 1
+
+[node name="Node" type="Node2D" parent="NinePatchRect"]
+
+[node name="Label" type="Label" parent="NinePatchRect/Node"]
+offset_left = 299.0
+offset_top = 33.0
+offset_right = 380.0
+offset_bottom = 56.0
+text = "QUANTITY"
+
+[node name="upButton" type="TextureButton" parent="NinePatchRect/Node"]
+offset_left = 255.0
+offset_top = 56.0
+offset_right = 314.0
+offset_bottom = 115.0
+texture_normal = ExtResource("10_tvfpt")
+texture_pressed = ExtResource("9_1ctwe")
+stretch_mode = 0
+
+[node name="downButton" type="TextureButton" parent="NinePatchRect/Node"]
+offset_left = 427.0
+offset_top = 118.0
+offset_right = 486.0
+offset_bottom = 177.0
+rotation = 3.14159
+texture_normal = ExtResource("10_tvfpt")
+texture_pressed = ExtResource("9_1ctwe")
+stretch_mode = 0
+
+[node name="QuantityLabel" type="Label" parent="NinePatchRect/Node"]
+offset_left = 322.0
+offset_top = 53.0
+offset_right = 362.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="NinePatchRect/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/LifeBg/BuyLife" to="." method="_on_buy_life_pressed"]
+[connection signal="pressed" from="NinePatchRect/LifeBg/ArrowBg/BuyAmmo" to="." method="_on_buy_ammo_pressed"]
+[connection signal="pressed" from="NinePatchRect/Node/upButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/Node/downButton" to="." method="_on_down_button_pressed"]

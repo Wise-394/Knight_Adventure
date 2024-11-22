@@ -78,6 +78,12 @@ shape = SubResource("WorldBoundaryShape2D_sciiv")
 
 [node name="UI" parent="." instance=ExtResource("1_b81kf")]
 
+[node name="ShopButton" parent="UI" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="Shop" parent="UI/ShopButton" index="0" node_paths=PackedStringArray("gameManager")]
+gameManager = NodePath("../../../GameManager")
+
 [node name="Cointainer" type="HBoxContainer" parent="UI"]
 offset_left = 20.0
 offset_top = 176.0
@@ -136,3 +142,4 @@ limit_bottom = -78
 position_smoothing_enabled = true
 
 [editable path="UI"]
+[editable path="UI/ShopButton"]

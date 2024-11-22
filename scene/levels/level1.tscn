@@ -502,6 +502,16 @@ position = Vector2(228, -183)
 [node name="hearts" parent="UI" index="0"]
 metadata/_edit_use_anchors_ = true
 
+[node name="ShopButton" parent="UI" index="1" node_paths=PackedStringArray("player")]
+offset_left = 1037.0
+offset_top = 13.0
+offset_right = 1128.0
+offset_bottom = 60.0
+player = NodePath("../../Player")
+
+[node name="Shop" parent="UI/ShopButton" index="0" node_paths=PackedStringArray("gameManager")]
+gameManager = NodePath("../../../GameManager")
+
 [node name="Cointainer" type="HBoxContainer" parent="UI"]
 offset_left = 20.0
 offset_top = 176.0
@@ -551,3 +561,4 @@ position = Vector2(1813, -16)
 [editable path="Enemy/Cannon6"]
 [editable path="Enemy/Cannon5"]
 [editable path="UI"]
+[editable path="UI/ShopButton"]
