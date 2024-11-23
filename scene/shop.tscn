@@ -122,6 +122,7 @@ texture_pressed = ExtResource("8_fil31")
 stretch_mode = 0
 
 [node name="AmmoTextLabel" type="Label" parent="NinePatchRect/LifeBg/ArrowBg/BuyAmmo"]
+layout_mode = 0
 offset_left = 34.0
 offset_top = 5.0
 offset_right = 74.0

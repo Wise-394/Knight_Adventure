@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d1oshcwyram30"]
+[gd_scene load_steps=23 format=4 uid="uid://d1oshcwyram30"]
 
 [ext_resource type="PackedScene" uid="uid://dnh7hauwuos2a" path="res://scene/ui.tscn" id="1_b81kf"]
 [ext_resource type="PackedScene" uid="uid://b8p08pg5lybvh" path="res://scene/game_manager.tscn" id="1_w5vow"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dtw1irir1tnyb" path="res://asset/Rocky Roads/Rocky Roads/Objects/coin_solo.png" id="2_wtoln"]
 [ext_resource type="Texture2D" uid="uid://bun0txes47vvo" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(32x32).png" id="3_gx2nq"]
 [ext_resource type="PackedScene" uid="uid://ctkfxm1sx80jn" path="res://scene/kill_zone.tscn" id="7_dniwj"]
+[ext_resource type="Texture2D" uid="uid://bm4dnftvd3vh0" path="res://asset/Rocky Roads/Rocky Roads/Backgrounds/mountains_a.png" id="7_onthv"]
+[ext_resource type="Texture2D" uid="uid://b6sgfnbcvp5dy" path="res://asset/CM/iceBG.png" id="7_yl2fa"]
+[ext_resource type="PackedScene" uid="uid://cscireunklocf" path="res://scene/saw.tscn" id="8_leuak"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sciiv"]
 
@@ -67,6 +70,120 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_1rhf4")
 
+[sub_resource type="Animation" id="Animation_8f2im"]
+resource_name = "move"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(163, -201), Vector2(163, -162), Vector2(163, -201)]
+}
+
+[sub_resource type="Animation" id="Animation_kbaxp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(163, -201)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5bvc"]
+_data = {
+"RESET": SubResource("Animation_kbaxp"),
+"move": SubResource("Animation_8f2im")
+}
+
+[sub_resource type="Animation" id="Animation_25umi"]
+resource_name = "move"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.03333, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(248, -155), Vector2(248, -208), Vector2(248, -155)]
+}
+
+[sub_resource type="Animation" id="Animation_katln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(248, -155)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n4amb"]
+_data = {
+"RESET": SubResource("Animation_katln"),
+"move": SubResource("Animation_25umi")
+}
+
+[sub_resource type="Animation" id="Animation_qoa6w"]
+resource_name = "move"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(461, -168), Vector2(280, -168)]
+}
+
+[sub_resource type="Animation" id="Animation_2q323"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(461, -168)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pnh6j"]
+_data = {
+"RESET": SubResource("Animation_2q323"),
+"move": SubResource("Animation_qoa6w")
+}
+
 [node name="Level2" type="Node2D"]
 
 [node name="killZone" parent="." instance=ExtResource("7_dniwj")]
@@ -125,21 +242,72 @@ unique_name_in_owner = true
 hearts = [NodePath("../UI/hearts/HBoxContainer/heart"), NodePath("../UI/hearts/HBoxContainer/heart2"), NodePath("../UI/hearts/HBoxContainer/heart3")]
 currentLevel = 2
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="world" type="Node" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="world"]
 position = Vector2(82, -164)
-tile_map_data = PackedByteArray("AAD//wEAAAABAAIAAAD//wIAAAABAAMAAAD//wMAAAABAAQAAAAAAAAAAAACAAEAAAAAAAEAAAACAAIAAAAAAAIAAAACAAMAAAAAAAMAAAACAAQAAAABAAAAAAADAAEAAAABAAEAAAADAAIAAAABAAIAAAADAAMAAAABAAMAAAADAAQAAAACAAAAAAAEAAEAAAACAAEAAAAEAAIAAAACAAIAAAAEAAMAAAACAAMAAAAEAAQAAAADAAAAAAAFAAEAAAADAAEAAAAFAAIAAAADAAIAAAAFAAMAAAADAAMAAAAFAAQAAAA=")
+tile_map_data = PackedByteArray("AAD//wEAAAABAAIAAAD//wIAAAABAAMAAAD//wMAAAABAAMAAAAAAAAAAAACAAEAAAAAAAEAAAACAAIAAAAAAAIAAAACAAMAAAAAAAMAAAADAAMAAAABAAAAAAADAAEAAAABAAEAAAADAAIAAAABAAIAAAADAAMAAAABAAMAAAADAAMAAAACAAAAAAAEAAEAAAACAAEAAAAEAAIAAAACAAIAAAAEAAMAAAACAAMAAAADAAMAAAADAAAAAAAFAAEAAAADAAEAAAAFAAIAAAADAAIAAAAFAAMAAAADAAMAAAAFAAMAAAD//wQAAAABAAMAAAD//wUAAAABAAMAAAD//wYAAAABAAQAAAADAAQAAAAFAAMAAAADAAUAAAAFAAMAAAADAAYAAAAFAAQAAAABAAUAAAADAAMAAAABAAYAAAADAAQAAAACAAUAAAAEAAMAAAACAAYAAAAEAAQAAAAAAAUAAAAEAAMAAAAAAAYAAAAEAAQAAAACAAQAAAADAAMAAAABAAQAAAADAAMAAAAAAAQAAAADAAMAAAAGAP//AAAHAAMAAAAHAP//AAAIAAMAAAAIAP7/AAAJAAIAAAAIAP//AAAJAAMAAAALAAEAAAACAAEAAAAMAAEAAAADAAEAAAANAAEAAAAEAAEAAAALAAIAAAABAAMAAAALAAMAAAABAAMAAAALAAQAAAABAAMAAAALAAUAAAABAAQAAAAPAAEAAAACAAEAAAAQAAEAAAADAAEAAAARAAEAAAADAAEAAAASAAEAAAAFAAIAAAASAAIAAAADAAMAAAASAAMAAAADAAMAAAASAAQAAAADAAMAAAASAAUAAAAFAAQAAAARAAUAAAAEAAQAAAAQAAUAAAAEAAQAAAAPAAUAAAAEAAQAAAAOAAUAAAAEAAQAAAANAAUAAAAEAAQAAAAMAAUAAAAEAAQAAAAMAAIAAAADAAMAAAANAAIAAAAEAAIAAAAOAAIAAAADAAEAAAAMAAMAAAADAAMAAAANAAMAAAADAAMAAAAOAAMAAAAEAAMAAAAMAAQAAAADAAMAAAANAAQAAAADAAMAAAAOAAQAAAADAAMAAAAPAAIAAAADAAMAAAAQAAIAAAADAAMAAAARAAIAAAAEAAMAAAAPAAMAAAADAAMAAAAQAAMAAAADAAMAAAARAAMAAAADAAMAAAAPAAQAAAACAAMAAAAQAAQAAAADAAMAAAARAAQAAAAEAAMAAAAWAAEAAAACAAEAAAAWAAIAAAADAAMAAAAWAAMAAAADAAMAAAAWAAQAAAADAAMAAAAXAAEAAAADAAEAAAAXAAIAAAADAAMAAAAXAAMAAAADAAMAAAAXAAQAAAADAAMAAAAYAAEAAAAEAAEAAAAYAAIAAAAFAAMAAAAYAAMAAAAFAAMAAAAYAAQAAAAFAAMAAAAWAAUAAAADAAQAAAAYAAUAAAAFAAQAAAAXAAUAAAADAAQAAAATAAIAAAADAAMAAAAUAAIAAAADAAMAAAAVAAIAAAADAAEAAAATAAMAAAADAAMAAAAUAAMAAAADAAMAAAAVAAMAAAADAAMAAAATAAQAAAADAAMAAAAUAAQAAAADAAMAAAAVAAQAAAADAAMAAAAVAAUAAAADAAQAAAAUAAUAAAADAAQAAAATAAUAAAADAAQAAAATAAEAAAADAAEAAAAUAAEAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_257ih")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="world"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="world/ParallaxBackground"]
+position = Vector2(58, -84)
+motion_mirroring = Vector2(256, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="world/ParallaxBackground/ParallaxLayer"]
+position = Vector2(130, -100)
+texture = ExtResource("7_yl2fa")
+
+[node name="Sprite2D3" type="Sprite2D" parent="world/ParallaxBackground/ParallaxLayer"]
+position = Vector2(130, -222)
+texture = ExtResource("7_yl2fa")
+
+[node name="Sprite2D" type="Sprite2D" parent="world/ParallaxBackground/ParallaxLayer"]
+position = Vector2(130, -50)
+texture = ExtResource("7_onthv")
 
 [node name="Player" parent="." instance=ExtResource("2_i4ei2")]
 unique_name_in_owner = true
+z_index = 10
 position = Vector2(99, -173)
 collision_mask = 4
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4.5, 4.5)
+limit_left = 60
 limit_top = -400
 limit_bottom = -78
 position_smoothing_enabled = true
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="Saw2" parent="enemies" instance=ExtResource("8_leuak")]
+position = Vector2(163, -201)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Saw2"]
+libraries = {
+"": SubResource("AnimationLibrary_v5bvc")
+}
+autoplay = "move"
+
+[node name="Saw" parent="enemies" instance=ExtResource("8_leuak")]
+position = Vector2(248, -155)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Saw"]
+libraries = {
+"": SubResource("AnimationLibrary_n4amb")
+}
+autoplay = "move"
+
+[node name="Saw" parent="." instance=ExtResource("8_leuak")]
+position = Vector2(461, -168)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Saw"]
+libraries = {
+"": SubResource("AnimationLibrary_pnh6j")
+}
+autoplay = "move"
 
 [editable path="UI"]
 [editable path="UI/ShopButton"]

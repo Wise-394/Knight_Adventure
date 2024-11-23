@@ -28,6 +28,8 @@ func _ready():
 func playerDeath():
 	if get_tree():
 		arrowAmount = 3
+		coins = 0
+		savePlayerData()
 		updateArrowAmount()
 		get_tree().call_deferred("reload_current_scene")
 
