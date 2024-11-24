@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://1122seb77gmt"]
+
+[ext_resource type="Script" path="res://fireball.gd" id="1_8d1x4"]
+[ext_resource type="Texture2D" uid="uid://c325mymlndwg8" path="res://asset/Rocky Roads/Rocky Roads/Enemies/fireball.png" id="1_vgbqr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15kh4"]
+atlas = ExtResource("1_vgbqr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tstni"]
+atlas = ExtResource("1_vgbqr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvdhf"]
+atlas = ExtResource("1_vgbqr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dqcn"]
+atlas = ExtResource("1_vgbqr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6dti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15kh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tstni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvdhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dqcn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxf1a"]
+size = Vector2(14, 8)
+
+[node name="fireball" type="Area2D"]
+rotation = -1.5708
+collision_layer = 0
+script = ExtResource("1_8d1x4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c6dti")
+autoplay = "default"
+frame_progress = 0.128323
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fxf1a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

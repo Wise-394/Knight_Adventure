@@ -9,7 +9,7 @@ extends Node
 var saveData = PlayerData.new()
 
 var playerHealth = 3
-var coins
+var coins:int
 var arrowAmount = 3
 var playerSpawnX = 98
 var playerSpawnY = -182
@@ -21,7 +21,9 @@ func _ready():
 		arrowAmount = 3
 	elif currentLevel == 2:
 		load_data()
-
+	elif currentLevel == 3:
+		load_data()
+	print(coins)
 	updateArrowAmount()
 	
 
