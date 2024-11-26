@@ -1,0 +1,195 @@
+[gd_scene load_steps=22 format=4 uid="uid://pntoorgcvln5"]
+
+[ext_resource type="Texture2D" uid="uid://ce0lm01i7lns0" path="res://asset/Rocky Roads/Rocky Roads/Tilesets/tileset_forest.png" id="1_frd4c"]
+[ext_resource type="Texture2D" uid="uid://deyfi88ogr0e3" path="res://asset/sky.png" id="1_qaswx"]
+[ext_resource type="Texture2D" uid="uid://bo7v71fa3sx35" path="res://asset/Rocky Roads/Rocky Roads/Backgrounds/trees.png" id="2_77fal"]
+[ext_resource type="Texture2D" uid="uid://bo55ep2p8df1b" path="res://asset/Rocky Roads/Rocky Roads/Deco/water_a_8frames.png" id="2_ca0gg"]
+[ext_resource type="PackedScene" uid="uid://c5pfj0gymqasf" path="res://scene/cloud.tscn" id="2_puba5"]
+[ext_resource type="Texture2D" uid="uid://c4ugyjva02y5d" path="res://asset/CM/knightAdventure-export.png" id="5_ngml0"]
+[ext_resource type="Texture2D" uid="uid://dm8fnmfel8md8" path="res://asset/Rocky Roads/Rocky Roads/Deco/tree.png" id="6_v7rdo"]
+[ext_resource type="Texture2D" uid="uid://duabagl3cqel" path="res://asset/Rocky Roads/Rocky Roads/Deco/rock.png" id="7_6qe5f"]
+[ext_resource type="Texture2D" uid="uid://dw61ftocva3qb" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="8_huua5"]
+[ext_resource type="Script" path="res://scene/play.gd" id="9_lvagn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0w7j7"]
+texture = ExtResource("2_ca0gg")
+0:0/animation_columns = 8
+0:0/0 = 0
+1:0/animation_columns = 8
+1:0/animation_frame_0/duration = 1.0
+1:0/animation_frame_1/duration = 1.0
+1:0/animation_frame_2/duration = 1.0
+1:0/animation_frame_3/duration = 1.0
+1:0/animation_frame_4/duration = 1.0
+1:0/animation_frame_5/duration = 1.0
+1:0/animation_frame_6/duration = 1.0
+1:0/animation_frame_7/duration = 1.0
+1:0/0 = 0
+1:1/animation_columns = 8
+1:1/animation_frame_0/duration = 1.0
+1:1/animation_frame_1/duration = 1.0
+1:1/animation_frame_2/duration = 1.0
+1:1/animation_frame_3/duration = 1.0
+1:1/animation_frame_4/duration = 1.0
+1:1/animation_frame_5/duration = 1.0
+1:1/animation_frame_6/duration = 1.0
+1:1/animation_frame_7/duration = 1.0
+1:1/0 = 0
+0:1/animation_columns = 8
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8s6ii"]
+sources/0 = SubResource("TileSetAtlasSource_0w7j7")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oekwb"]
+texture = ExtResource("1_frd4c")
+2:0/0 = 0
+3:0/0 = 0
+5:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+8:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6nca4"]
+sources/0 = SubResource("TileSetAtlasSource_oekwb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy8b8"]
+atlas = ExtResource("8_huua5")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emd5t"]
+atlas = ExtResource("8_huua5")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciip4"]
+atlas = ExtResource("8_huua5")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c160p"]
+atlas = ExtResource("8_huua5")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htjy7"]
+atlas = ExtResource("8_huua5")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os5uf"]
+atlas = ExtResource("8_huua5")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wx1uo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy8b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emd5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciip4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c160p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htjy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os5uf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Menu" type="Node2D"]
+
+[node name="sky" type="Sprite2D" parent="."]
+position = Vector2(245.5, -216.5)
+scale = Vector2(1.28906, 1.22667)
+texture = ExtResource("1_qaswx")
+
+[node name="cloud" parent="." instance=ExtResource("2_puba5")]
+position = Vector2(383, -296)
+
+[node name="cloud2" parent="." instance=ExtResource("2_puba5")]
+position = Vector2(52, -263)
+
+[node name="cloud3" parent="." instance=ExtResource("2_puba5")]
+position = Vector2(196, -228)
+
+[node name="cloud4" parent="." instance=ExtResource("2_puba5")]
+
+[node name="forest" type="Sprite2D" parent="."]
+position = Vector2(244.5, -226.5)
+scale = Vector2(1.29297, 1.41406)
+texture = ExtResource("2_77fal")
+
+[node name="sea" type="TileMapLayer" parent="."]
+position = Vector2(245.5, -216.5)
+tile_map_data = PackedByteArray("AAD5/wMAAAABAAAAAAD5/wQAAAABAAEAAAD6/wMAAAABAAAAAAD6/wQAAAABAAEAAAD7/wMAAAABAAAAAAD7/wQAAAABAAEAAAD8/wMAAAABAAAAAAD8/wQAAAABAAEAAAD9/wMAAAABAAAAAAD9/wQAAAABAAEAAAD+/wMAAAABAAAAAAD+/wQAAAABAAEAAAD//wMAAAABAAAAAAD//wQAAAABAAEAAAAAAAMAAAABAAAAAAAAAAQAAAABAAEAAAABAAMAAAABAAAAAAABAAQAAAABAAEAAAACAAMAAAABAAAAAAACAAQAAAABAAEAAAADAAMAAAABAAAAAAADAAQAAAABAAEAAAAEAAMAAAABAAAAAAAEAAQAAAABAAEAAAAFAAMAAAABAAAAAAAFAAQAAAABAAEAAAD3/wMAAAABAAAAAAD3/wQAAAABAAEAAAAGAAMAAAABAAAAAAAGAAQAAAABAAEAAAAHAAMAAAABAAAAAAAHAAQAAAABAAEAAAD3/wUAAAABAAEAAAD4/wUAAAABAAEAAAD5/wUAAAABAAEAAAD6/wUAAAABAAEAAAD7/wUAAAABAAEAAAD8/wUAAAABAAEAAAD9/wUAAAABAAEAAAD+/wUAAAABAAEAAAD//wUAAAABAAEAAAAAAAUAAAABAAEAAAABAAUAAAABAAEAAAACAAUAAAABAAEAAAADAAUAAAABAAEAAAAEAAUAAAABAAEAAAAFAAUAAAABAAEAAAAGAAUAAAABAAEAAAAHAAUAAAABAAEAAAAHAAYAAAABAAEAAAAGAAYAAAABAAEAAAAFAAYAAAABAAEAAAAEAAYAAAABAAEAAAADAAYAAAABAAEAAAACAAYAAAABAAEAAAABAAYAAAABAAEAAAAAAAYAAAABAAEAAAD//wYAAAABAAEAAAD+/wYAAAABAAEAAAD9/wYAAAABAAEAAAD8/wYAAAABAAEAAAD7/wYAAAABAAEAAAD6/wYAAAABAAEAAAD5/wYAAAABAAEAAAD4/wYAAAABAAEAAAD4/wQAAAABAAEAAAD3/wYAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_8s6ii")
+
+[node name="land" type="TileMapLayer" parent="."]
+position = Vector2(245.5, -216.5)
+tile_map_data = PackedByteArray("AADz/wMAAAABAAIAAADz/wQAAAABAAMAAADz/wUAAAABAAMAAAD0/wEAAAACAAAAAAD0/wIAAAACAAEAAAD0/wMAAAACAAIAAAD0/wQAAAACAAMAAAD0/wUAAAAEAAMAAAD1/wEAAAADAAAAAAD1/wIAAAADAAEAAAD1/wMAAAADAAIAAAD1/wQAAAADAAMAAAD1/wUAAAAEAAMAAAD2/wIAAAAEAAEAAAD2/wMAAAAEAAIAAAD2/wQAAAAEAAMAAAD2/wUAAAAEAAMAAAD3/wEAAAAFAAAAAAD3/wIAAAAFAAEAAAD3/wMAAAAFAAIAAAD3/wQAAAAFAAMAAAD3/wUAAAAEAAMAAAD4/wIAAAAGAAEAAAD4/wMAAAAGAAIAAAD4/wQAAAAGAAMAAAD4/wUAAAAGAAMAAAAHAAEAAAACAAEAAAAIAAEAAAADAAEAAAAJAAEAAAAEAAEAAAAKAAEAAAAFAAEAAAD4/wYAAAAGAAQAAAD0/wYAAAACAAQAAAD1/wYAAAADAAQAAAD2/wYAAAADAAQAAAD3/wYAAAAFAAQAAADz/wYAAAABAAQAAAAGAAYAAAABAAQAAAAHAAYAAAACAAQAAAAIAAYAAAACAAQAAAAJAAYAAAACAAQAAAAKAAYAAAAGAAQAAAAKAAIAAAAGAAMAAAAKAAMAAAAGAAMAAAAKAAQAAAAGAAMAAAAKAAUAAAAGAAMAAAAHAAMAAAAEAAMAAAAHAAIAAAACAAIAAAAIAAIAAAAEAAMAAAAIAAMAAAAEAAMAAAAIAAQAAAAEAAMAAAAHAAQAAAAEAAMAAAAHAAUAAAAEAAMAAAAIAAUAAAAEAAMAAAAJAAUAAAAEAAMAAAAJAAQAAAAEAAMAAAAJAAMAAAAEAAMAAAAJAAIAAAAEAAMAAAAGAAIAAAABAAIAAAAGAAMAAAABAAMAAAAGAAQAAAABAAMAAAAGAAUAAAABAAMAAAA=")
+tile_set = SubResource("TileSet_6nca4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(245.5, -216.5)
+zoom = Vector2(3.5, 3.5)
+
+[node name="tree" type="Sprite2D" parent="."]
+position = Vector2(386.5, -224.5)
+texture = ExtResource("6_v7rdo")
+
+[node name="rock" type="Sprite2D" parent="."]
+position = Vector2(369.5, -208.5)
+texture = ExtResource("7_6qe5f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(95, -192)
+sprite_frames = SubResource("SpriteFrames_wx1uo")
+autoplay = "default"
+frame_progress = 0.312739
+
+[node name="play" type="Button" parent="."]
+offset_left = 222.5
+offset_top = -188.5
+offset_right = 269.5
+offset_bottom = -157.5
+text = "PLAY"
+script = ExtResource("9_lvagn")
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(246.5, -257.5)
+scale = Vector2(0.835938, 0.835938)
+texture = ExtResource("5_ngml0")
+
+[connection signal="pressed" from="play" to="play" method="_on_pressed"]
