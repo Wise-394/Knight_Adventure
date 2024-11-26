@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://1122seb77gmt"]
 
-[ext_resource type="Script" path="res://fireball.gd" id="1_8d1x4"]
+[ext_resource type="Script" path="res://script/fireball.gd" id="1_8d1x4"]
 [ext_resource type="Texture2D" uid="uid://c325mymlndwg8" path="res://asset/Rocky Roads/Rocky Roads/Enemies/fireball.png" id="1_vgbqr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_15kh4"]

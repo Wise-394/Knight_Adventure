@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cscireunklocf"]
 
-[ext_resource type="Script" path="res://static_body_2d.gd" id="1_7j3e2"]
+[ext_resource type="Script" path="res://script/static_body_2d.gd" id="1_7j3e2"]
 [ext_resource type="Texture2D" uid="uid://nj40b817scas" path="res://asset/Rocky Roads/Rocky Roads/Enemies/saw.png" id="2_1ire4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eck8d"]

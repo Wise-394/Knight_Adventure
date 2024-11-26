@@ -4,7 +4,9 @@ extends Area2D
 @onready var game_manager: Node = %GameManager
 
 func nextLevel():
-	if levelToTp == 2:
+	if levelToTp == 1:
+		get_tree().change_scene_to_file("res://scene/levels/level1.tscn")
+	elif levelToTp == 2:
 		game_manager.savePlayerData()
 		get_tree().change_scene_to_file("res://scene/levels/level_2.tscn")
 	elif levelToTp == 3:
