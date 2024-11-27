@@ -39,7 +39,7 @@ func _on_buy_life_pressed() -> void:
 	var quantity = int(quantity_label.text)
 	var price = int(life_text_label.text)
 	if gameManager.playerHealth == 3:
-		print("full hp")
+		pass
 	elif coins >= price:
 		gameManager.increasePlayerHealth(quantity)
 		gameManager.decreaseCoin(price)
@@ -49,6 +49,5 @@ func _on_buy_ammo_pressed() -> void:
 	var quantity = int(quantity_label.text)
 	var price = int(ammo_text_label.text)
 	if coins >= price:
-		print(true)
 		gameManager.increaseArrowAmount(quantity)
 		gameManager.decreaseCoin(price)

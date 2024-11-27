@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bouii450pe7d1" path="res://asset/CM/shop/shopBG.png" id="1_owmq1"]
 [ext_resource type="Texture2D" uid="uid://qkdcen3qu8u1" path="res://asset/CM/shop/shopClose.png" id="2_dei64"]
 [ext_resource type="Texture2D" uid="uid://cnoovg7vs1liy" path="res://asset/CM/shop/ShopPanel.png" id="3_ow4fu"]
-[ext_resource type="Script" path="res://scene/exit_button.gd" id="3_stwwd"]
+[ext_resource type="Script" path="res://script/exit_button.gd" id="3_stwwd"]
 [ext_resource type="Texture2D" uid="uid://bdwp8vvfxy34g" path="res://asset/CM/shop/shopClosePressed1.png" id="4_1fqbi"]
 [ext_resource type="Texture2D" uid="uid://brik2ytow688y" path="res://asset/Rocky Roads/Rocky Roads/UI/hearts.png" id="4_2nsf6"]
 [ext_resource type="Texture2D" uid="uid://bun0txes47vvo" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(32x32).png" id="6_15i8v"]

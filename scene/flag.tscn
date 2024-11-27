@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cisltqdg3jrm3"]
 
 [ext_resource type="Texture2D" uid="uid://cc4lhqeokl0n" path="res://asset/Rocky Roads/Rocky Roads/Objects/flag.png" id="1_ne3cl"]
-[ext_resource type="Script" path="res://scene/flag.gd" id="1_qof3l"]
+[ext_resource type="Script" path="res://script/flag.gd" id="1_qof3l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nm8b0"]
 atlas = ExtResource("1_ne3cl")

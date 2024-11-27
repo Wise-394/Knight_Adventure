@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvtcvfckn1y78"]
+
+[ext_resource type="Script" path="res://script/ring.gd" id="1_m1xq2"]
+[ext_resource type="Texture2D" uid="uid://df1qep68dw3cf" path="res://asset/CM/ring.png" id="1_sqy6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rewlv"]
+size = Vector2(16, 135)
+
+[node name="Ring" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_m1xq2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sqy6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25.5)
+shape = SubResource("RectangleShape2D_rewlv")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

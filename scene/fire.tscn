@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://caea2ljtvciw0"]
 
-[ext_resource type="Script" path="res://scene/fire.gd" id="1_j0mel"]
+[ext_resource type="Script" path="res://script/fire.gd" id="1_j0mel"]
 [ext_resource type="Texture2D" uid="uid://dqxda4ac38rm0" path="res://asset/Rocky Roads/Rocky Roads/Enemies/fire.png" id="1_o8iyt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjxkq"]

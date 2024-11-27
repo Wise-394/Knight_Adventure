@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://uq5f1aoyv1fc"]
+
+[ext_resource type="Script" path="res://script/npc.gd" id="1_fcflc"]
+[ext_resource type="Texture2D" uid="uid://cctpkadvuos60" path="res://asset/pixel_adventure/villager.png" id="2_oj5j8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo4rx"]
+atlas = ExtResource("2_oj5j8")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k55y0"]
+atlas = ExtResource("2_oj5j8")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr5ly"]
+atlas = ExtResource("2_oj5j8")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a57b"]
+atlas = ExtResource("2_oj5j8")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8lgn"]
+atlas = ExtResource("2_oj5j8")
+region = Rect2(80, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7eh5t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo4rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k55y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr5ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a57b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8lgn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahhla"]
+size = Vector2(64, 126)
+
+[node name="NPC" type="Area2D"]
+z_index = 9
+position = Vector2(231, -187)
+collision_layer = 0
+script = ExtResource("1_fcflc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7eh5t")
+autoplay = "default"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -46)
+shape = SubResource("RectangleShape2D_ahhla")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

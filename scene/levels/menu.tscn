@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dm8fnmfel8md8" path="res://asset/Rocky Roads/Rocky Roads/Deco/tree.png" id="6_v7rdo"]
 [ext_resource type="Texture2D" uid="uid://duabagl3cqel" path="res://asset/Rocky Roads/Rocky Roads/Deco/rock.png" id="7_6qe5f"]
 [ext_resource type="Texture2D" uid="uid://dw61ftocva3qb" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="8_huua5"]
-[ext_resource type="Script" path="res://scene/play.gd" id="9_lvagn"]
+[ext_resource type="Script" path="res://script/play.gd" id="9_lvagn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0w7j7"]
 texture = ExtResource("2_ca0gg")

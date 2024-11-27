@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwpl04eellk4e"]
 
 [ext_resource type="Texture2D" uid="uid://pmqc8uvgy4ag" path="res://asset/Rocky Roads/Rocky Roads/FX/bomb_explosion.png" id="1_lage6"]
-[ext_resource type="Script" path="res://scene/cannon_explosion.gd" id="2_wtuah"]
+[ext_resource type="Script" path="res://script/cannon_explosion.gd" id="2_wtuah"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7lsoo"]
 atlas = ExtResource("1_lage6")

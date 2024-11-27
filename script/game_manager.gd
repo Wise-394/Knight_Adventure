@@ -23,7 +23,6 @@ func _ready():
 		load_data()
 	elif currentLevel == 3:
 		load_data()
-	print(coins)
 	updateArrowAmount()
 	
 
