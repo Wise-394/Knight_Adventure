@@ -13,8 +13,9 @@ var coins:int
 var arrowAmount = 3
 var playerSpawnX = 98
 var playerSpawnY = -182
-
+var coinFX
 func _ready():
+	coinFX = preload("res://scene/coin_fx.tscn")
 	if currentLevel == 1:
 		coins = 0
 		coinAmount.text = str(coins)
@@ -54,6 +55,10 @@ func enemyHit(dmg,enemy):
 func pickUp(item):
 	if item == "coin":
 		coins +=1
+		var new_coin = coinFX.instantiate()
+		get_tree().current_scene.add_child(new_coin)
+		new_coin.global_position.x = player.global_position.x
+		new_coin.global_position.y = player.global_position.y - 12
 		coinAmount.text = str(coins)
 	if item == "heart":
 		if playerHealth < 3:

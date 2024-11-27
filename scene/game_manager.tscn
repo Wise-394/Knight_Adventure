@@ -4,4 +4,4 @@
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("hearts")]
 script = ExtResource("1_nywj5")
-hearts = [NodePath(""), NodePath(""), NodePath("")]
+hearts = [null, null, null]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://br3tgm3rlgk4"]
+
+[ext_resource type="Texture2D" uid="uid://jsepflkreldu" path="res://asset/Rocky Roads/Rocky Roads/FX/walk_dust.png" id="1_rbccl"]
+[ext_resource type="Script" path="res://scene/smoke.gd" id="2_bm6h3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cnmc"]
+atlas = ExtResource("1_rbccl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lapty"]
+atlas = ExtResource("1_rbccl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm6s1"]
+atlas = ExtResource("1_rbccl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3kmj"]
+atlas = ExtResource("1_rbccl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pplm2"]
+atlas = ExtResource("1_rbccl")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v8vo"]
+atlas = ExtResource("1_rbccl")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ithr8"]
+atlas = ExtResource("1_rbccl")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8256d"]
+atlas = ExtResource("1_rbccl")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ews8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cnmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lapty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm6s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3kmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pplm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v8vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ithr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8256d")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="smoke" type="AnimatedSprite2D"]
+z_index = 8
+position = Vector2(-10, -1)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_7ews8")
+autoplay = "default"
+frame_progress = 0.0642337
+flip_h = true
+script = ExtResource("2_bm6h3")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

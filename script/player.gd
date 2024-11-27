@@ -4,9 +4,12 @@ extends CharacterBody2D
 @onready var gameManager = %GameManager
 @onready var sword_hit = $SwordHit
 @onready var player: CharacterBody2D = $"."
+@onready var timer: Timer = $Timer
+
 
 var arrow
-
+var smoke
+var canCreateSmoke = true
 const SPEED = 115.0
 const JUMP_VELOCITY = -300.0
 var playerState = "default"
@@ -17,6 +20,7 @@ var hitRegistered = false
 var arrowAmount
 func _ready() -> void:
 	arrow = preload("res:///scene/arrow.tscn")
+	smoke = preload("res://scene/smoke.tscn")
 	arrowAmount = gameManager.arrowAmount
 func _physics_process(delta):
 	# Add the gravity.
@@ -44,7 +48,23 @@ func move():
 	elif direction <= 0:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-
+	
+	if canCreateSmoke:
+		if velocity.x > 0 and velocity.y == 0:
+			var new_smoke = smoke.instantiate()
+			get_tree().current_scene.add_child(new_smoke)
+			new_smoke.global_position.x = sword_hit.global_position.x - 10
+			new_smoke.global_position.y = sword_hit.global_position.y + 2
+			canCreateSmoke = false
+			timer.start()
+		elif velocity.x < 0 and velocity.y == 0: 
+			var new_smoke = smoke.instantiate()
+			get_tree().current_scene.add_child(new_smoke)
+			new_smoke.global_position.x = sword_hit.global_position.x + 20
+			new_smoke.global_position.y = sword_hit.global_position.y + 2
+			canCreateSmoke = false
+			timer.start()
+	
 
 func animation():
 	if playerState == "is_hurt":
@@ -124,3 +144,7 @@ func _on_sword_hit_body_entered(body):
 
 func _on_hit_box_body_exited(_body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	canCreateSmoke = true

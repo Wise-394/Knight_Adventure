@@ -289,10 +289,9 @@ shape = SubResource("RectangleShape2D_05isj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k02jv")
-animation = &"sword_attack"
+animation = &"run"
 autoplay = "idle"
-frame = 5
-frame_progress = 1.0
+frame_progress = 0.410594
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_k77tm")
@@ -305,8 +304,12 @@ collision_mask = 2
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ftbep")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="body_entered" from="SwordHit" to="." method="_on_sword_hit_body_entered"]
 [connection signal="body_exited" from="SwordHit" to="." method="_on_sword_hit_body_exited"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
