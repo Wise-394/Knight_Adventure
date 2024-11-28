@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bfektwdjnwsvm"]
+[gd_scene load_steps=28 format=4 uid="uid://bfektwdjnwsvm"]
 
 [ext_resource type="Texture2D" uid="uid://ce0lm01i7lns0" path="res://asset/Rocky Roads/Rocky Roads/Tilesets/tileset_forest.png" id="1_k8jak"]
 [ext_resource type="Texture2D" uid="uid://bo55ep2p8df1b" path="res://asset/Rocky Roads/Rocky Roads/Deco/water_a_8frames.png" id="1_spy8x"]
@@ -129,6 +129,24 @@ sources/0 = SubResource("TileSetAtlasSource_1eby3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo4ju"]
 size = Vector2(55, 44)
+
+[sub_resource type="Environment" id="Environment_5dovg"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_levels/7 = 0.3
+glow_intensity = 0.3
+glow_strength = 1.1
+glow_bloom = 0.2
+glow_blend_mode = 1
+glow_hdr_threshold = 3.0
+glow_hdr_scale = 1.8
+glow_map_strength = 0.69
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1
 
 [node name="level_0" type="Node2D"]
 
@@ -442,6 +460,9 @@ texture = ExtResource("20_ne04t")
 [node name="CheckPoint" parent="." instance=ExtResource("18_h52f6")]
 z_index = 1
 position = Vector2(99, -192)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5dovg")
 
 [editable path="UI"]
 [editable path="UI/ShopButton"]

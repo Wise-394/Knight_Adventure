@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bj0a04wdhcfrc"]
+[gd_scene load_steps=38 format=4 uid="uid://bj0a04wdhcfrc"]
 
 [ext_resource type="PackedScene" uid="uid://b8p08pg5lybvh" path="res://scene/game_manager.tscn" id="1_42nw4"]
 [ext_resource type="Texture2D" uid="uid://dyhsg0ga8meyu" path="res://asset/Rocky Roads/Rocky Roads/Tilesets/tileset_lava.png" id="1_lj2q0"]
@@ -369,6 +369,24 @@ _data = {
 "RESET": SubResource("Animation_n2bbu"),
 "move": SubResource("Animation_nff7s")
 }
+
+[sub_resource type="Environment" id="Environment_n08rt"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_levels/7 = 0.3
+glow_intensity = 0.3
+glow_strength = 1.1
+glow_bloom = 0.2
+glow_blend_mode = 1
+glow_hdr_threshold = 3.0
+glow_hdr_scale = 1.8
+glow_map_strength = 0.69
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1
 
 [node name="Level3" type="Node2D"]
 
@@ -773,6 +791,9 @@ autoplay = "move"
 [node name="Flag" parent="." instance=ExtResource("18_d46wj")]
 position = Vector2(2083, -155)
 levelToTp = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n08rt")
 
 [connection signal="body_entered" from="Ring" to="Ring" method="_on_body_entered"]
 

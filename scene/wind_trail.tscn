@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2y6nspe0v2g6"]
+
+[ext_resource type="Texture2D" uid="uid://ct0xu7qk65pom" path="res://asset/Rocky Roads/Rocky Roads/FX/bullet_windtrail.png" id="1_hselx"]
+[ext_resource type="Script" path="res://scene/wind_trail.gd" id="2_78lyy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en8il"]
+atlas = ExtResource("1_hselx")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ismgi"]
+atlas = ExtResource("1_hselx")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa54y"]
+atlas = ExtResource("1_hselx")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kbwb"]
+atlas = ExtResource("1_hselx")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ka2x4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en8il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ismgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa54y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kbwb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="WindTrail" type="AnimatedSprite2D"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_ka2x4")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("2_78lyy")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

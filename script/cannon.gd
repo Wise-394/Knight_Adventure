@@ -5,7 +5,7 @@ extends StaticBody2D
 @export var side: String
 
 @onready var cannonAmmo = preload("res:///scene/CannonAmmo.tscn")
-
+@onready var cannonSmoke = preload("res://scene/cannon_smoke.tscn")
 func _on_timer_timeout() -> void:
 	animated_sprite_2d.play("shoot")
 
@@ -24,4 +24,13 @@ func shoot():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "shoot":
 		shoot()
+		var new_cannonSmoke = cannonSmoke.instantiate()
+		get_tree().current_scene.add_child(new_cannonSmoke)
+		if side == "left":
+			new_cannonSmoke.global_position.x = cannon.global_position.x - 15
+			new_cannonSmoke.global_position.y = cannon.global_position.y + 5
+		elif side == "down":
+			new_cannonSmoke.rotation = deg_to_rad(-90)
+			new_cannonSmoke.global_position.x = cannon.global_position.x +5
+			new_cannonSmoke.global_position.y = cannon.global_position.y + 15
 		animated_sprite_2d.play("idle")

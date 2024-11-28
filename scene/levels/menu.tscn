@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://pntoorgcvln5"]
+[gd_scene load_steps=23 format=4 uid="uid://pntoorgcvln5"]
 
 [ext_resource type="Texture2D" uid="uid://ce0lm01i7lns0" path="res://asset/Rocky Roads/Rocky Roads/Tilesets/tileset_forest.png" id="1_frd4c"]
 [ext_resource type="Texture2D" uid="uid://deyfi88ogr0e3" path="res://asset/sky.png" id="1_qaswx"]
@@ -127,6 +127,24 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Environment" id="Environment_ch4wi"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_levels/7 = 0.3
+glow_intensity = 0.3
+glow_strength = 1.1
+glow_bloom = 0.2
+glow_blend_mode = 1
+glow_hdr_threshold = 3.0
+glow_hdr_scale = 1.8
+glow_map_strength = 0.69
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1
+
 [node name="Menu" type="Node2D"]
 
 [node name="sky" type="Sprite2D" parent="."]
@@ -191,5 +209,8 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(246.5, -257.5)
 scale = Vector2(0.835938, 0.835938)
 texture = ExtResource("5_ngml0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ch4wi")
 
 [connection signal="pressed" from="play" to="play" method="_on_pressed"]

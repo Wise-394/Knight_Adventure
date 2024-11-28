@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bixjixtek3ii5"]
+
+[ext_resource type="Texture2D" uid="uid://dklvqj37uc3ui" path="res://asset/Rocky Roads/Rocky Roads/FX/cannon_fire_smoke.png" id="1_uaoro"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfhhf"]
+atlas = ExtResource("1_uaoro")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhp7l"]
+atlas = ExtResource("1_uaoro")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvlud"]
+atlas = ExtResource("1_uaoro")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0nsr"]
+atlas = ExtResource("1_uaoro")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u2ij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfhhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhp7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvlud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0nsr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CannonSmoke" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_3u2ij")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0

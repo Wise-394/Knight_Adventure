@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b8tg0e62qa87h"]
+[gd_scene load_steps=20 format=4 uid="uid://b8tg0e62qa87h"]
 
 [ext_resource type="Texture2D" uid="uid://deyfi88ogr0e3" path="res://asset/sky.png" id="1_3uc0g"]
 [ext_resource type="Texture2D" uid="uid://ce0lm01i7lns0" path="res://asset/Rocky Roads/Rocky Roads/Tilesets/tileset_forest.png" id="1_7auv2"]
@@ -119,6 +119,24 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_vfi1f")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7j3lh"]
+
+[sub_resource type="Environment" id="Environment_38dyw"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_levels/7 = 0.3
+glow_intensity = 0.3
+glow_strength = 1.1
+glow_bloom = 0.2
+glow_blend_mode = 1
+glow_hdr_threshold = 3.0
+glow_hdr_scale = 1.8
+glow_map_strength = 0.69
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1
 
 [node name="level_4" type="Node2D"]
 
@@ -332,6 +350,9 @@ position = Vector2(146, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killZone"]
 shape = SubResource("WorldBoundaryShape2D_7j3lh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_38dyw")
 
 [editable path="UI"]
 [editable path="UI/ShopButton"]

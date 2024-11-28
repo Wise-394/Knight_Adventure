@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://d1oshcwyram30"]
+[gd_scene load_steps=38 format=4 uid="uid://d1oshcwyram30"]
 
 [ext_resource type="PackedScene" uid="uid://dnh7hauwuos2a" path="res://scene/ui.tscn" id="1_b81kf"]
 [ext_resource type="PackedScene" uid="uid://b8p08pg5lybvh" path="res://scene/game_manager.tscn" id="1_w5vow"]
@@ -269,6 +269,24 @@ _data = {
 "RESET": SubResource("Animation_80q8t"),
 "move": SubResource("Animation_abc6c")
 }
+
+[sub_resource type="Environment" id="Environment_0bh10"]
+background_mode = 3
+glow_levels/1 = 1.0
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_levels/7 = 0.3
+glow_intensity = 0.3
+glow_strength = 1.1
+glow_bloom = 0.2
+glow_blend_mode = 1
+glow_hdr_threshold = 3.0
+glow_hdr_scale = 1.8
+glow_map_strength = 0.69
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1
 
 [node name="Level2" type="Node2D"]
 
@@ -618,6 +636,9 @@ position = Vector2(1627, -142)
 
 [node name="coin24" parent="." instance=ExtResource("16_j34fc")]
 position = Vector2(1642, -142)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0bh10")
 
 [editable path="UI"]
 [editable path="UI/ShopButton"]
