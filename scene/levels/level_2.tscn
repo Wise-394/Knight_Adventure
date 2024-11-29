@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://d1oshcwyram30"]
+[gd_scene load_steps=39 format=4 uid="uid://d1oshcwyram30"]
 
 [ext_resource type="PackedScene" uid="uid://dnh7hauwuos2a" path="res://scene/ui.tscn" id="1_b81kf"]
 [ext_resource type="PackedScene" uid="uid://b8p08pg5lybvh" path="res://scene/game_manager.tscn" id="1_w5vow"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b6sgfnbcvp5dy" path="res://asset/CM/iceBG.png" id="7_yl2fa"]
 [ext_resource type="PackedScene" uid="uid://cscireunklocf" path="res://scene/saw.tscn" id="8_leuak"]
 [ext_resource type="PackedScene" uid="uid://bell8ggk0skd6" path="res://scene/check_point.tscn" id="9_72urc"]
+[ext_resource type="AudioStream" uid="uid://cd3nhxlabuu5d" path="res://asset/CM/final.mp3" id="13_gup11"]
 [ext_resource type="PackedScene" uid="uid://108fnppui8n" path="res://scene/enemy_orc.tscn" id="13_x0mef"]
 [ext_resource type="PackedScene" uid="uid://dpexrbt2fbcnv" path="res://scene/enemy_barrier.tscn" id="14_cu7x1"]
 [ext_resource type="PackedScene" uid="uid://c5pfj0gymqasf" path="res://scene/cloud.tscn" id="15_yxp0s"]
@@ -403,6 +404,14 @@ limit_left = 60
 limit_top = -315
 limit_bottom = -78
 position_smoothing_enabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-95, 192)
+stream = ExtResource("13_gup11")
+volume_db = -10.0
+pitch_scale = 0.75
+autoplay = true
+parameters/looping = true
 
 [node name="enemies" type="Node2D" parent="."]
 z_index = 1

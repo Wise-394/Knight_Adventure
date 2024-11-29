@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bfektwdjnwsvm"]
+[gd_scene load_steps=29 format=4 uid="uid://bfektwdjnwsvm"]
 
 [ext_resource type="Texture2D" uid="uid://ce0lm01i7lns0" path="res://asset/Rocky Roads/Rocky Roads/Tilesets/tileset_forest.png" id="1_k8jak"]
 [ext_resource type="Texture2D" uid="uid://bo55ep2p8df1b" path="res://asset/Rocky Roads/Rocky Roads/Deco/water_a_8frames.png" id="1_spy8x"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ctkfxm1sx80jn" path="res://scene/kill_zone.tscn" id="4_vyn0g"]
 [ext_resource type="Texture2D" uid="uid://dtw1irir1tnyb" path="res://asset/Rocky Roads/Rocky Roads/Objects/coin_solo.png" id="5_m8t52"]
 [ext_resource type="Texture2D" uid="uid://bun0txes47vvo" path="res://asset/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(32x32).png" id="6_36l6j"]
+[ext_resource type="AudioStream" uid="uid://cd3nhxlabuu5d" path="res://asset/CM/final.mp3" id="7_y4mkm"]
 [ext_resource type="PackedScene" uid="uid://cisltqdg3jrm3" path="res://scene/flag.tscn" id="10_4lf5l"]
 [ext_resource type="PackedScene" uid="uid://dpexrbt2fbcnv" path="res://scene/enemy_barrier.tscn" id="11_5xl1t"]
 [ext_resource type="PackedScene" uid="uid://uq5f1aoyv1fc" path="res://scene/npc.tscn" id="12_hqiqv"]
@@ -184,6 +185,14 @@ unique_name_in_owner = true
 z_index = 10
 position = Vector2(95, -192)
 collision_mask = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-95, 192)
+stream = ExtResource("7_y4mkm")
+volume_db = -10.0
+pitch_scale = 0.75
+autoplay = true
+parameters/looping = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4.5, 4.5)

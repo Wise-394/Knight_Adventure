@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=4 uid="uid://de166d2xpn0w2"]
+[gd_scene load_steps=45 format=4 uid="uid://de166d2xpn0w2"]
 
 [ext_resource type="PackedScene" uid="uid://b8p08pg5lybvh" path="res://scene/game_manager.tscn" id="1_mkp4r"]
 [ext_resource type="PackedScene" uid="uid://dpexrbt2fbcnv" path="res://scene/enemy_barrier.tscn" id="2_qhdo2"]
 [ext_resource type="PackedScene" uid="uid://b4yur2i8wyhe7" path="res://scene/player.tscn" id="3_xcj20"]
 [ext_resource type="PackedScene" uid="uid://cxrjpq8nf8ulu" path="res://scene/coin.tscn" id="4_h5dlp"]
+[ext_resource type="AudioStream" uid="uid://cd3nhxlabuu5d" path="res://asset/CM/final.mp3" id="4_uupi2"]
 [ext_resource type="PackedScene" uid="uid://lx4l2nmsh05r" path="res://scene/heart.tscn" id="5_o35lc"]
 [ext_resource type="PackedScene" uid="uid://3aoi40ylibtc" path="res://scene/platform.tscn" id="6_o32bk"]
 [ext_resource type="Texture2D" uid="uid://ce0lm01i7lns0" path="res://asset/Rocky Roads/Rocky Roads/Tilesets/tileset_forest.png" id="7_xqn4v"]
@@ -348,6 +349,14 @@ limit_top = -400
 limit_bottom = -78
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-95, 192)
+stream = ExtResource("4_uupi2")
+volume_db = -10.0
+pitch_scale = 0.75
+autoplay = true
+parameters/looping = true
 
 [node name="pickup" type="Node" parent="."]
 
