@@ -1,6 +1,7 @@
 extends Enemy
 
 
+
 func _ready():
 	add_to_group("enemy")
 	hp = 2

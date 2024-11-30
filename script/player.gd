@@ -5,6 +5,11 @@ extends CharacterBody2D
 @onready var sword_hit = $SwordHit
 @onready var player: CharacterBody2D = $"."
 @onready var timer: Timer = $Timer
+@onready var jump: AudioStreamPlayer2D = $sound/jump
+@onready var attack: AudioStreamPlayer2D = $sound/attack
+@onready var hurt: AudioStreamPlayer2D = $sound/hurt
+@onready var shoot_sound: AudioStreamPlayer2D = $sound/shootSound
+
 
 
 var arrow
@@ -18,6 +23,8 @@ var enemyOnHitBox = false
 var enemy = null
 var hitRegistered = false
 var arrowAmount
+var playhurt = true
+
 func _ready() -> void:
 	arrow = preload("res:///scene/arrow.tscn")
 	smoke = preload("res://scene/smoke.tscn")
@@ -30,12 +37,12 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	move()
 	animation()
 	playerAttack()
-	
 func move():
 	direction = Input.get_axis("left", "right")
 	if direction > 0:
@@ -48,6 +55,7 @@ func move():
 	elif direction <= 0:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+	
 	
 	if canCreateSmoke:
 		if velocity.x > 0 and velocity.y == 0:
@@ -68,9 +76,13 @@ func move():
 
 func animation():
 	if playerState == "is_hurt":
+		if playhurt == true:
+			hurt.play()
+			playhurt = false
 		animated_sprite.play("hurt")
 	elif Input.is_action_just_pressed("lmb") and playerState == "default":
 		animated_sprite.play("sword_attack")
+		attack.play()
 		playerState = "sword_attack"
 	elif Input.is_action_just_pressed("rmb") and not playerState == "sword_attack" and arrowAmount > 0:
 		animated_sprite.play("bow_attack")
@@ -92,6 +104,7 @@ func playerAttack():
 		pass
 		
 func shoot():
+	shoot_sound.play()
 	var new_arrow = arrow.instantiate()
 	get_tree().current_scene.add_child(new_arrow)
 	new_arrow.global_position = sword_hit.global_position
@@ -128,6 +141,7 @@ func _on_animated_sprite_2d_animation_finished():
 		playerState = "default"
 	if animated_sprite.animation == "hurt":
 		playerState = "default"
+		playhurt = true
 
 
 func _on_hit_box_body_entered(body):

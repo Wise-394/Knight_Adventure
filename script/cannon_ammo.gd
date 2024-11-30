@@ -7,6 +7,8 @@ var side
 @onready var cannon_ammo: Area2D = $"."
 @onready var wind_trail_timer: Timer = $WindTrailTimer
 
+
+
 var state = "Cannon"
 @onready var cannonExplosion = preload("res:///scene/cannon_explosion.tscn")
 var windTrailSpawn = true

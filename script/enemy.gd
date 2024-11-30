@@ -9,7 +9,6 @@ var game_manager
 var area_2d
 var hp
 var state = "default"
-
 var speed = 10
 var direction = 1
 var stopMoving = false

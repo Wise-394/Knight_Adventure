@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8p08pg5lybvh"]
+[gd_scene load_steps=3 format=3 uid="uid://b8p08pg5lybvh"]
 
 [ext_resource type="Script" path="res://script/game_manager.gd" id="1_nywj5"]
+[ext_resource type="AudioStream" uid="uid://c6vk46fcemyfh" path="res://asset/bracky/coin.wav" id="2_cntkw"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("hearts")]
 script = ExtResource("1_nywj5")
 hearts = [null, null, null]
+
+[node name="coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cntkw")

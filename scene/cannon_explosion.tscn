@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwpl04eellk4e"]
+[gd_scene load_steps=11 format=3 uid="uid://cwpl04eellk4e"]
 
 [ext_resource type="Texture2D" uid="uid://pmqc8uvgy4ag" path="res://asset/Rocky Roads/Rocky Roads/FX/bomb_explosion.png" id="1_lage6"]
 [ext_resource type="Script" path="res://script/cannon_explosion.gd" id="2_wtuah"]
+[ext_resource type="AudioStream" uid="uid://badamjm2jdl2t" path="res://asset/pixabay/medium-explosion-40472.mp3" id="3_rc2om"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7lsoo"]
 atlas = ExtResource("1_lage6")
@@ -61,6 +62,11 @@ frame_progress = 1.0
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_q3xnd")
+
+[node name="explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rc2om")
+autoplay = true
+max_distance = 200.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

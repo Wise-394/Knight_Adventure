@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cscireunklocf"]
+[gd_scene load_steps=8 format=3 uid="uid://cscireunklocf"]
 
 [ext_resource type="Script" path="res://script/static_body_2d.gd" id="1_7j3e2"]
 [ext_resource type="Texture2D" uid="uid://nj40b817scas" path="res://asset/Rocky Roads/Rocky Roads/Enemies/saw.png" id="2_1ire4"]
+[ext_resource type="AudioStream" uid="uid://b56qb6jbemsbb" path="res://asset/pixabay/saw.mp3" id="3_x757q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eck8d"]
 radius = 14.0357
@@ -42,5 +43,11 @@ scale = Vector2(0.882353, 0.882353)
 sprite_frames = SubResource("SpriteFrames_a4cxs")
 autoplay = "default"
 frame_progress = 0.102961
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_x757q")
+autoplay = true
+max_distance = 100.0
+parameters/looping = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -4,6 +4,7 @@ extends Node
 @onready var coinAmount = %CointAmount
 @onready var player: CharacterBody2D = %Player
 @onready var arrow_amount: Label = %arrowAmount
+@onready var coin: AudioStreamPlayer = $coin
 
 @export var currentLevel: int
 var saveData = PlayerData.new()
@@ -60,6 +61,7 @@ func pickUp(item):
 		new_coin.global_position.x = player.global_position.x
 		new_coin.global_position.y = player.global_position.y - 12
 		coinAmount.text = str(coins)
+		coin.play()
 	if item == "heart":
 		if playerHealth < 3:
 			playerHealth += 1
