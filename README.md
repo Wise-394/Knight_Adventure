@@ -3,6 +3,9 @@
 #### Video Demo:  [Gameplay](https://youtu.be/yGzxpi4Undk?si=rinIOEplczQ-1FHD)
 #### Description:  __Knight Adventure__ is a 2d side-scroller platformer game where you will play as a knight doing quest, defeating monsters and travelling the world
 
+[![PLAY NOW](https://img.shields.io/badge/PLAY%20NOW-white?style=flat&logo=itch.io&logoColor=orange&link=https://wise-394.itch.io/knight-adventure)](https://wise-394.itch.io/knight-adventure) </br>
+https://wise-394.itch.io/knight-adventure
+
 This game is a CS50 final project made with Godot game engine. The  game follows the story of a knight tasked by the villager to retrieve his lost ring in order to propose to his love. You will travel different places, defeat the monsters, avoid the traps and parkour through the platforms, overcoming any challenges that you will face in order to retrieve the ring
 
 __ps. this is my first game made in godot__
