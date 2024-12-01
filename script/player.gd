@@ -10,8 +10,6 @@ extends CharacterBody2D
 @onready var hurt: AudioStreamPlayer2D = $sound/hurt
 @onready var shoot_sound: AudioStreamPlayer2D = $sound/shootSound
 
-
-
 var arrow
 var smoke
 var canCreateSmoke = true

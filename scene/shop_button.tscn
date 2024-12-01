@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://diru8q3cf3aho"]
 
 [ext_resource type="Texture2D" uid="uid://b7yj4dl2y5vux" path="res://asset/CM/shop/shopButtonCM1.png" id="1_bq2fy"]
-[ext_resource type="Script" path="res://scene/shop_button.gd" id="2_3ty80"]
+[ext_resource type="Script" path="res://script/shop_button.gd" id="2_3ty80"]
 [ext_resource type="PackedScene" uid="uid://dl4g6u5ywxqvu" path="res://scene/shop.tscn" id="3_mnpe6"]
 
 [node name="ShopButton" type="TextureButton"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://br3tgm3rlgk4"]
 
 [ext_resource type="Texture2D" uid="uid://jsepflkreldu" path="res://asset/Rocky Roads/Rocky Roads/FX/walk_dust.png" id="1_rbccl"]
-[ext_resource type="Script" path="res://scene/smoke.gd" id="2_bm6h3"]
+[ext_resource type="Script" path="res://script/smoke.gd" id="2_bm6h3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cnmc"]
 atlas = ExtResource("1_rbccl")

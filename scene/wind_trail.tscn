@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2y6nspe0v2g6"]
 
 [ext_resource type="Texture2D" uid="uid://ct0xu7qk65pom" path="res://asset/Rocky Roads/Rocky Roads/FX/bullet_windtrail.png" id="1_hselx"]
-[ext_resource type="Script" path="res://scene/wind_trail.gd" id="2_78lyy"]
+[ext_resource type="Script" path="res://script/wind_trail.gd" id="2_78lyy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_en8il"]
 atlas = ExtResource("1_hselx")

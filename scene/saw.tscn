@@ -46,6 +46,7 @@ frame_progress = 0.102961
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_x757q")
+volume_db = -20.0
 autoplay = true
 max_distance = 100.0
 parameters/looping = true

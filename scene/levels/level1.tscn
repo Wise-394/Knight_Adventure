@@ -353,7 +353,7 @@ position_smoothing_enabled = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-95, 192)
 stream = ExtResource("4_qnmkp")
-volume_db = 1.0
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 

@@ -320,12 +320,14 @@ pitch_scale = 0.6
 
 [node name="attack" type="AudioStreamPlayer2D" parent="sound"]
 stream = ExtResource("8_ljn83")
+volume_db = 5.0
 
 [node name="hurt" type="AudioStreamPlayer2D" parent="sound"]
 stream = ExtResource("9_crabp")
 
 [node name="shootSound" type="AudioStreamPlayer2D" parent="sound"]
 stream = ExtResource("10_mff3t")
+volume_db = 5.0
 
 [connection signal="body_entered" from="SwordHit" to="." method="_on_sword_hit_body_entered"]
 [connection signal="body_exited" from="SwordHit" to="." method="_on_sword_hit_body_exited"]

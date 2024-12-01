@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dwumq0wwjvlvc"]
 
 [ext_resource type="Texture2D" uid="uid://dxfs2fclqj4c6" path="res://asset/Rocky Roads/Rocky Roads/FX/coin_collect.png" id="1_b3hnf"]
-[ext_resource type="Script" path="res://animated_sprite_2d.gd" id="2_t7riu"]
+[ext_resource type="Script" path="res://script/animated_sprite_2d.gd" id="2_t7riu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ty76"]
 atlas = ExtResource("1_b3hnf")

@@ -9,3 +9,4 @@ hearts = [null, null, null]
 
 [node name="coin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_cntkw")
+volume_db = -15.0

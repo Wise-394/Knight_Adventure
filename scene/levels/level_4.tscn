@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://b8tg0e62qa87h"]
+[gd_scene load_steps=22 format=4 uid="uid://b8tg0e62qa87h"]
 
 [ext_resource type="Texture2D" uid="uid://deyfi88ogr0e3" path="res://asset/pixel_adventure/sky.png" id="1_3uc0g"]
 [ext_resource type="Texture2D" uid="uid://ce0lm01i7lns0" path="res://asset/Rocky Roads/Rocky Roads/Tilesets/tileset_forest.png" id="1_7auv2"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bf631sdwuvxnv" path="res://asset/bracky/time_for_adventure.mp3" id="7_hgmob"]
 [ext_resource type="PackedScene" uid="uid://uq5f1aoyv1fc" path="res://scene/npc.tscn" id="7_mfc45"]
 [ext_resource type="PackedScene" uid="uid://ctkfxm1sx80jn" path="res://scene/kill_zone.tscn" id="9_whpl1"]
+[ext_resource type="PackedScene" uid="uid://cisltqdg3jrm3" path="res://scene/flag.tscn" id="15_pa28n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uj531"]
 texture = ExtResource("4_kj4rt")
@@ -187,7 +188,7 @@ position_smoothing_enabled = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-95, 192)
 stream = ExtResource("7_hgmob")
-volume_db = 1.0
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
@@ -361,6 +362,11 @@ shape = SubResource("WorldBoundaryShape2D_7j3lh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_38dyw")
+
+[node name="Flag" parent="." instance=ExtResource("15_pa28n")]
+z_index = 10
+position = Vector2(373, -178)
+levelToTp = 5
 
 [editable path="UI"]
 [editable path="UI/ShopButton"]

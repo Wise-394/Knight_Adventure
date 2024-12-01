@@ -14,6 +14,8 @@ func nextLevel():
 		get_tree().change_scene_to_file("res://scene/levels/level_3.tscn")
 	elif levelToTp == 4:
 		get_tree().change_scene_to_file("res://scene/levels/level_4.tscn")
+	elif levelToTp == 5:
+		get_tree().change_scene_to_file("res://scene/levels/end.tscn")
 		
 		
 func _on_body_entered(_body: Node2D) -> void:
