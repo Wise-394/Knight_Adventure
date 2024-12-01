@@ -1,6 +1,6 @@
 
 # Knight Adventure
-#### Video Demo:  https://www.youtube.com/watch?v=2t2F1GaCC2M
+#### Video Demo:  [Gameplay](https://youtu.be/yGzxpi4Undk?si=rinIOEplczQ-1FHD)
 #### Description:  __Knight Adventure__ is a 2d side-scroller platformer game where you will play as a knight doing quest, defeating monsters and travelling the world
 
 This game is a CS50 final project made with Godot game engine. The  game follows the story of a knight tasked by the villager to retrieve his lost ring in order to propose to his love. You will travel different places, defeat the monsters, avoid the traps and parkour through the platforms, overcoming any challenges that you will face in order to retrieve the ring
