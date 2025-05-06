@@ -8,7 +8,6 @@ https://wise-394.itch.io/knight-adventure
 
 This game is a CS50 final project made with Godot game engine. The  game follows the story of a knight tasked by the villager to retrieve his lost ring in order to propose to his love. You will travel different places, defeat the monsters, avoid the traps and parkour through the platforms, overcoming any challenges that you will face in order to retrieve the ring
 
-__ps. this is my first game made in godot__
 
 ## Gameplay
 - parkour through different platforms
